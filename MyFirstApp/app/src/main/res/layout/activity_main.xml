@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dbdbdb"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:cotext="com.hfad.myfirstapp.MainActivity">
+
+    <TextView
+        android:id="@+id/devbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:textSize="18sp"
+        android:text="DevBox"
+        android:gravity="center"
+
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/promptView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/promptView"
+        android:layout_width="364dp"
+        android:layout_height="420dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/mainLabel"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/switch_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/switch_card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_corner"
+        android:onClick="onClickSwitchCard"
+        android:text="@string/mainBtn"
+        android:textSize="24sp"
+
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
