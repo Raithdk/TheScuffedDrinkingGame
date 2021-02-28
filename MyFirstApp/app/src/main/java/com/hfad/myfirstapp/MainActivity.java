@@ -6,13 +6,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends Activity {
-    private DrukSpilMain core = new DrukSpilMain();
+    private CardHandler core = new CardHandler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

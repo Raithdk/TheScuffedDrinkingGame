@@ -1,12 +1,18 @@
 package com.hfad.myfirstapp;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrukSpilMain {
+public class CardHandler {
 
-
+    String drinkCardColor = "#f57e76",
+    neutralCardColor = "#96b4fa",
+    truthCardColor = "#beebc2",
+    dareCardColor = "#e3c0ed",
+    pointCardColor = "#e9edc0";
 
     private String neutralPrompts = "Hvis du er den yngste i selskabet skal du drikke ud \n" +
             "Hvis du hedder Sasha skal du drikke ud\n" +
@@ -79,12 +85,14 @@ public class DrukSpilMain {
 
     private List<Card> allCards = new ArrayList<>();
 
-    public DrukSpilMain(){
-        CreateCards();
+    public CardHandler(){
+
+            CreateCards();
+
         this.allCards = shuffleCards(allCards);
     }
 
-    private void CreateCards(){
+    private void CreateCards() {
         String promptArray[] = neutralPrompts.split("\n");
         String drinkArray[] = drinkPrompts.split("\n");
         String truthArray[] = truthPrompts.split("\n");
@@ -92,35 +100,35 @@ public class DrukSpilMain {
         String pointArray[] = pointPrompts.split("\n");
 
         for (String prompt : promptArray) {
-            allCards.add(new Card(prompt, "#96b4fa"));
+            allCards.add(new Card(prompt, neutralCardColor));
         }
 
         for (String prompt : drinkArray){
             String[] drinkCard = splitCard(prompt);
             if(drinkCard.length > 2){
-                allCards.add(new DrinkCard(drinkCard[0], "#f57e76", Integer.parseInt(drinkCard[1]),Integer.parseInt(drinkCard[2])));
+                allCards.add(new DrinkCard(drinkCard[0], drinkCardColor, Integer.parseInt(drinkCard[1]),Integer.parseInt(drinkCard[2])));
             }
             else{
-                allCards.add(new DrinkCard(drinkCard[0], "#f57e76", Integer.parseInt(drinkCard[1])));
+                allCards.add(new DrinkCard(drinkCard[0], drinkCardColor, Integer.parseInt(drinkCard[1])));
             }
 
         }
         //sandhedskort
         for (String prompt : truthArray) {
-            allCards.add(new Card(prompt, "#beebc2"));
+            allCards.add(new Card(prompt, truthCardColor));
         }
         //konsekvenskort
         for (String prompt : dareArray){
-            allCards.add(new Card(prompt, "#e3c0ed"));
+            allCards.add(new Card(prompt, dareCardColor));
         }
         //Pegekort
         for (String prompt : pointArray){
             String[] pointCard = splitCard(prompt);
             if(pointCard.length > 2){
-                allCards.add(new DrinkCard(pointCard[0], "#e9edc0", Integer.parseInt(pointCard[1]),Integer.parseInt(pointCard[2])));
+                allCards.add(new DrinkCard(pointCard[0], pointCardColor, Integer.parseInt(pointCard[1]),Integer.parseInt(pointCard[2])));
             }
             else{
-                allCards.add(new DrinkCard(pointCard[0], "#e9edc0", Integer.parseInt(pointCard[1])));
+                allCards.add(new DrinkCard(pointCard[0], pointCardColor, Integer.parseInt(pointCard[1])));
             }
         }
     }
@@ -166,7 +174,8 @@ public class DrukSpilMain {
     public Card switchCards(){
         if (cardCounter >= allCards.size()){
             allCards.clear();
-            CreateCards();
+                CreateCards();
+
 
             allCards = shuffleCards(allCards);
             cardCounter = 0;
