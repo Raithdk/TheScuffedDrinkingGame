@@ -2,7 +2,13 @@ package com.hfad.myfirstapp;
 
 public class StringMetadata {
 
-    public static String neutralPrompts = "Hvis du er den yngste i selskabet skal du drikke ud \n" +
+    public final static String CATEGORY_NEUTRAL = "Neutral",
+            CATEGORY_DRINK = "Drink",
+            CATEGORY_TRUTH = "Truth",
+            CATEGORY_DARE = "Dare",
+            CATEGORY_POINT = "Point";
+
+    public final static String neutralPrompts = "Hvis du er den yngste i selskabet skal du drikke ud \n" +
             "Hvis du hedder Sasha skal du drikke ud\n" +
             "Den første der bunder ud må vælge en der skal bunde\n" +
             "Alle der hellere vil spille et andet spil bunder\n" +
@@ -29,7 +35,7 @@ public class StringMetadata {
             "Thunder (eller folkevogn)\n" +
             "Drik X antal tåre, din højre sidemand drikker X-1 tåre. Dette kører rundt til X=0.\n";
 
-    public static String drinkPrompts =
+    public final static String drinkPrompts =
             "Alle med briller drikker /x tåre ##3\n" +
                     "Den der ejer den enhed er spilles på, må give /x tåre ud! ##5-10\n" +
                     "Alle der er flyttet hjemmefra må give /x tåre ud ##2\n" +
@@ -89,13 +95,13 @@ public class StringMetadata {
                     "Drik /x tåre! ##2-6\n" +
                     "Drik /x tåre! ##2-6\n" +
                     "Drik /x tåre! ##2-6\n" +
-                    "Drik /x tåre! ##2-6\n" +
-                    "Giv /x tåre ud! ##2-6\n" +
-                    "Giv /x tåre ud! ##2-6\n" +
-                    "Giv /x tåre ud! ##2-6\n" +
-                    "Giv /x tåre ud! ##2-6\n";
+                    "Drik /x tåre! \n" +
+                    "Giv /x tåre ud! \n" +
+                    "Giv /x tåre ud! \n" +
+                    "Giv /x tåre ud! \n" +
+                    "Giv /x tåre ud! \n";
 
-    public static String truthPrompts = "Hvem i dette rum ville du helst skifte plads med for en dag?\n" +
+    public final static String truthPrompts = "Hvem i dette rum ville du helst skifte plads med for en dag?\n" +
             "Hvilken superhelte kraft vil du have og hvorfor?\n" +
             "Hvad ved spilleren til højre mere om end dig? \n" +
             "Hvem i dette rum ville du helst have med på en øde ø? \n" +
@@ -106,13 +112,13 @@ public class StringMetadata {
             "Kan du lide brød? \n" +
             "Hvem I dette rum ville du helst kunne mute i en hel dag?\n";
 
-    public static String darePrompts = "Vis dit bedste move på dansegulvet eller tøm dit glas\n" +
+    public final static String darePrompts = "Vis dit bedste move på dansegulvet eller tøm dit glas\n" +
             "Vis et af dine 10 nyeste billeder eller videoer og fortæl historien bag\n" +
             "Syng med på din senest afspillede spotifysang eller tøm dit glas\n" +
             "Post et billede på snap- eller instastory af selskabet\n" +
             "Tag et gruppebillede (med hele gruppen Thomas (eller bare med William))\n";
 
-    public static String pointPrompts = "Udpeg den yngste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. ##3-5\n" +
+    public final static String pointPrompts = "Udpeg den yngste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. ##3-5\n" +
             "Udpeg den ældste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. ##3-5\n" +
             "Peg på den mest ædru person, de skal drikke /x tåre. ##3-6\n" +
             "Peg på den fuldeste person, de drikker /x tåre. Hvis det er dig, giv 5 tåre væk. Legend. ##3\n" +

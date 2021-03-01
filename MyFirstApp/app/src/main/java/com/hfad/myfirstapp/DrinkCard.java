@@ -1,8 +1,13 @@
 package com.hfad.myfirstapp;
 
 public class DrinkCard extends Card {
-    private int sips = 0;
+    private int sips = (int) (Math.random() * (Settings.getHiSips() - Settings.getLowSips()) + Settings.getLowSips());
 
+
+    //Use user defined sips
+    public DrinkCard(String text, String category, String hColor){
+        super(text, category, hColor);
+    }
 
     //Set amount of sips
     public DrinkCard(String text, String category, String hColor, int sips){

@@ -1,8 +1,5 @@
 package com.hfad.myfirstapp;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +12,9 @@ public class CardHandler {
             pointCardColor = "#e9edc0";
 
     private String neutralPrompts = StringMetadata.neutralPrompts;
-
     private String drinkPrompts = StringMetadata.drinkPrompts;
-
     private String truthPrompts = StringMetadata.truthPrompts;
-
     private String darePrompts = StringMetadata.darePrompts;
-
     private String pointPrompts = StringMetadata.pointPrompts;
 
     private List<Card> allCards = new ArrayList<>();
@@ -41,34 +34,23 @@ public class CardHandler {
         String pointArray[] = pointPrompts.split("\n");
 
         for (String prompt : promptArray) {
-            allCards.add(new Card(prompt, "Neutral", neutralCardColor));
+            allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
         }
 
         for (String prompt : drinkArray) {
-            String[] drinkCard = splitCard(prompt);
-            if (drinkCard.length > 2) {
-                allCards.add(new DrinkCard(drinkCard[0], "Drink", drinkCardColor, Integer.parseInt(drinkCard[1]), Integer.parseInt(drinkCard[2])));
-            } else {
-                allCards.add(new DrinkCard(drinkCard[0], "Drink", drinkCardColor, Integer.parseInt(drinkCard[1])));
-            }
-
+            createDrinkCard(prompt, StringMetadata.CATEGORY_DRINK, drinkCardColor);
         }
         //sandhedskort
         for (String prompt : truthArray) {
-            allCards.add(new Card(prompt, "Truth", truthCardColor));
+            allCards.add(new Card(prompt, StringMetadata.CATEGORY_TRUTH, truthCardColor));
         }
         //konsekvenskort
         for (String prompt : dareArray) {
-            allCards.add(new Card(prompt, "Dare", dareCardColor));
+            allCards.add(new Card(prompt, StringMetadata.CATEGORY_DARE, dareCardColor));
         }
         //Pegekort
         for (String prompt : pointArray) {
-            String[] pointCard = splitCard(prompt);
-            if (pointCard.length > 2) {
-                allCards.add(new DrinkCard(pointCard[0], "Point", pointCardColor, Integer.parseInt(pointCard[1]), Integer.parseInt(pointCard[2])));
-            } else {
-                allCards.add(new DrinkCard(pointCard[0], "Point", pointCardColor, Integer.parseInt(pointCard[1])));
-            }
+            createDrinkCard(prompt, StringMetadata.CATEGORY_POINT, pointCardColor);
         }
     }
 
@@ -87,6 +69,19 @@ public class CardHandler {
         }
 
         return list;
+    }
+
+    private void createDrinkCard(String prompt, String category, String color){
+        if(prompt.contains("##")) {
+            String[] drinkCard = splitCard(prompt);
+            if (drinkCard.length > 2) {
+                allCards.add(new DrinkCard(drinkCard[0], category, color, Integer.parseInt(drinkCard[1]), Integer.parseInt(drinkCard[2])));
+            } else {
+                allCards.add(new DrinkCard(drinkCard[0], category, color, Integer.parseInt(drinkCard[1])));
+            }
+        } else {
+            allCards.add(new DrinkCard(prompt, category, color));
+        }
     }
 
     public String[] splitCard(String card) {
@@ -115,7 +110,6 @@ public class CardHandler {
         if (cardCounter >= allCards.size()) {
             allCards.clear();
             CreateCards();
-
 
             allCards = shuffleCards(allCards);
             cardCounter = 0;
