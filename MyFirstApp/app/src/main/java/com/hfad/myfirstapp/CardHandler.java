@@ -124,7 +124,8 @@ public class CardHandler {
     public String updateDevbox() {
         String devDisplay = "Cardcount: " + cardCounter + " Out of " + allCards.size() +
                 "\n" + "Card Type: " + allCards.get(cardCounter - 1).getCategory() +
-                "\n";
+                "\n" + "Sip range: " + Settings.getLowSips() +"-"+Settings.getHiSips()+
+                "\n" + "Gamemode: " + Settings.getGamemode()+"\n";
         if (allCards.get(cardCounter - 1) instanceof DrinkCard) {
             devDisplay = devDisplay.concat( " Sips: " + ((DrinkCard)allCards.get(cardCounter-1)).getSips());
         }

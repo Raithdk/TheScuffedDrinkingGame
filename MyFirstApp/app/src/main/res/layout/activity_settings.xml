@@ -12,16 +12,29 @@
 
     <ImageButton
         android:id="@+id/returnBtn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:background="@null"
         android:onClick="onReturn"
+        android:src="@drawable/abc_vector_test"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/abc_vector_test" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <org.florescu.android.rangeseekbar.RangeSeekBar
+        android:id="@+id/drinkRange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        app:absoluteMaxValue="1"
+        app:absoluteMinValue="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveBtn"
@@ -37,43 +50,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/highSipNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lowSipsNum" />
-
-    <EditText
-        android:id="@+id/lowSipsNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lowSipTxt"
+        android:id="@+id/hiSipTxt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lower limit Sips"
-        app:layout_constraintBottom_toTopOf="@+id/lowSipsNum"
-        app:layout_constraintStart_toStartOf="@+id/lowSipsNum" />
+        android:layout_marginBottom="52dp"
+        android:text="Gamemode: "
+        app:layout_constraintBottom_toTopOf="@+id/drinkRange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/hiSipTxt"
+        android:id="@+id/gamemode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upper Limit Sips"
-        app:layout_constraintBottom_toTopOf="@+id/highSipNum"
-        app:layout_constraintStart_toStartOf="@+id/lowSipsNum" />
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/hiSipTxt2"
+        app:layout_constraintStart_toStartOf="@+id/hiSipTxt2"
+        app:layout_constraintTop_toBottomOf="@+id/hiSipTxt2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

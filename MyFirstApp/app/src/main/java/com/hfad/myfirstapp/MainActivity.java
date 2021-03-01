@@ -4,35 +4,40 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.util.Timer;
+
 public class MainActivity extends Activity {
     private CardHandler core = new CardHandler();
-
+    Button cardButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startService(new Intent(this, MyService.class));
-
+        cardButton = findViewById(R.id.switch_card);
         final ImageButton ib = findViewById(R.id.settingsBtn);
         // Get the last ImageButton's layout parameters
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) ib.getLayoutParams();
         // Set the height of this ImageButton
-        params.height = 200;
+        params.height = 100;
         // Set the width of that ImageButton
-        params.width = 200;
+        params.width = 100;
         // Apply the updated layout parameters to last ImageButton
         ib.setLayoutParams(params);
         // Set the ImageButton image scale type for fourth ImageButton
         ib.setScaleType(ImageView.ScaleType.FIT_XY);
+        
 
     }
 
@@ -56,4 +61,6 @@ public class MainActivity extends Activity {
         startActivity(intent);
 
     }
+
+
 }
