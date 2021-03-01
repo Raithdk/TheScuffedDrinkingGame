@@ -5,15 +5,15 @@ public class DrinkCard extends Card {
 
 
     //Set amount of sips
-    public DrinkCard(String text, String hColor, int sips){
-        super(text, hColor);
+    public DrinkCard(String text, String category, String hColor, int sips){
+        super(text, category, hColor);
         this.sips = sips;
 
     }
 
     //Random amount of sips between lowSips and HiSips
-    public DrinkCard(String text, String hColor, int lowSips, int hiSips){
-        super(text, hColor);
+    public DrinkCard(String text, String category, String hColor, int lowSips, int hiSips){
+        super(text, category, hColor);
         this.sips = (int) (Math.random() * (hiSips - lowSips) + lowSips);
 
     }
@@ -26,5 +26,9 @@ public class DrinkCard extends Card {
         }
         return cardPrompt + "Test";
 
+    }
+
+    public int getSips() {
+        return sips;
     }
 }

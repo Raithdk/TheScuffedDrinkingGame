@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 public class MainActivity extends Activity {
     private CardHandler core = new CardHandler();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
