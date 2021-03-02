@@ -6,9 +6,10 @@ public class StringMetadata {
             CATEGORY_DRINK = "Drik Ud!",
             CATEGORY_TRUTH = "Sandhed",
             CATEGORY_DARE = "Konsekvens",
-            CATEGORY_NEVER = "Jeg har Aldrig",
+            CATEGORY_NEVER = "Jeg Har Aldrig",
             CATEGORY_RULE = "Regel!",
-            CATEGORY_VOTE = "Enig eller Uenig?";
+            CATEGORY_VOTE = "Enig eller Uenig?",
+            CATEGORY_LIKELY = "Mest Tilbøjelig Til";
 
 
     public final static String neutralPrompts = "Hvis du er den yngste i selskabet skal du drikke ud \n" +
@@ -204,4 +205,25 @@ public class StringMetadata {
             "Hvis du har et mellemnavn skal du tage et shot\n" +
             "Hvis dit efternavn starter med “Fredrik” skal du bunde\n" +
             "Hvis dit navn er Thomas Raith må du give en bund til Kristian Mathias Regnarson\n";
+
+    public static String likelyPrompts = "Lave en app fordi alle andre drukspil blev for kedelige\n" +
+            "Købe billigt toiletpapir\n" +
+            "Køre galt\n" +
+            "Spritkørsel\n" +
+            "Få kørekort som 30 årig\n" +
+            "Bo hjemme til de 30\n" +
+            "Dø først\n" +
+            "Være det største naturmenneske\n" +
+            "Være det største bymenneske\n" +
+            "Bygge et ikea møbel forkert\n" +
+            "Drukne i et glas vand\n" +
+            "Starte en virksomhed\n" +
+            "At flytte til udlandet\n" +
+            "Have en IQ under 60\n" +
+            "Blive ludoman\n" +
+            "Blive alkoholiker\n" +
+            "Bruge de dummeste penge\n" +
+            "Tage en tilfældig pille i byen\n" +
+            "Spise alt når de bliver fulde\n" +
+            "Eje for mange dyr\n";
 }

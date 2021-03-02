@@ -12,9 +12,10 @@ public class CardHandler {
             neverCardColor = "#57caff",
             ruleCardColor = "#ff9359",
             voteCardColor = "#e9ff57",
-            personalCardColor = "#93bbf0";
+            personalCardColor = "#93bbf0",
+            likelyCardColor = "#bd93f0";
 
-    String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray;
+    String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray, likelyArray;
 
 
     private List<Card> allCards = new ArrayList<>();
@@ -34,6 +35,7 @@ public class CardHandler {
         neverArray = StringMetadata.neverHaveIEverPrompts.split("\n");
         ruleArray = StringMetadata.rulePrompts.split("\n");
         voteArray = StringMetadata.votePrompts.split("\n");
+        likelyArray = StringMetadata.likelyPrompts.split("\n");
 
         personalArray = StringMetadata.personalPrompts.split("\n");
 
@@ -41,7 +43,6 @@ public class CardHandler {
             for(String prompt : personalArray){
                 allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, personalCardColor));
             }
-
         }
 
         if(Settings.isNeutralCard){
@@ -83,6 +84,12 @@ public class CardHandler {
         for (String prompt : voteArray) {
             allCards.add(new DrinkCard((prompt + "\n[/x tåre]"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
         }}
+
+        if(Settings.isLikelyCard){
+            for(String prompt : likelyArray){
+                allCards.add(new Card(prompt, StringMetadata.CATEGORY_LIKELY, likelyCardColor));
+            }
+        }
 
         if(allCards.isEmpty()){
             allCards.add(new Card("Du har slået alle kort fra, din bøv!", StringMetadata.CATEGORY_NEUTRAL,neutralCardColor));

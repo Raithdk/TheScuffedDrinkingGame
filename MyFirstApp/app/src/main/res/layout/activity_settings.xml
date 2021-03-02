@@ -140,6 +140,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/drinkRadio"
         app:layout_constraintStart_toStartOf="@+id/truthRadio" />
 
+    <CheckBox
+        android:id="@+id/likelyRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="@dimen/checkBoxTxt"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/neverRadio"
+        app:layout_constraintTop_toBottomOf="@+id/neverRadio" />
+
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
@@ -154,6 +164,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ public class settingsActivity extends Activity {
     RangeSeekBar rangeSeekBar;
     TextView gamemodeView;
     TextView gamemodeLabel;
-    CheckBox rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule;
+    CheckBox rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule, rLikely;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class settingsActivity extends Activity {
         rNever = findViewById(R.id.neverRadio);
         rTruth = findViewById(R.id.truthRadio);
         rRule = findViewById(R.id.ruleRadio);
+        rLikely = findViewById(R.id.likelyRadio);
 
         rNeutral.setChecked(Settings.isNeutralCard);
         rPersonal.setChecked(Settings.isPersonalCard);
@@ -52,6 +53,7 @@ public class settingsActivity extends Activity {
         rNever.setChecked(Settings.isNeverCard);
         rTruth.setChecked(Settings.isTruthCard);
         rRule.setChecked(Settings.isRuleCard);
+        rLikely.setChecked(Settings.isLikelyCard);
 
         gamemodeLabel.setOnClickListener(new DoubleClickListener() {
 
@@ -111,6 +113,7 @@ public class settingsActivity extends Activity {
         Settings.setIsNeverCard(rNever.isChecked());
         Settings.setIsTruthCard(rTruth.isChecked());
         Settings.setIsRuleCard(rRule.isChecked());
+        Settings.setIsLikelyCard(rLikely.isChecked());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

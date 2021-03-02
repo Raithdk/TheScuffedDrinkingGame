@@ -6,7 +6,8 @@ public class Settings {
     public static boolean isDrinkCard = true, isNeutralCard = true,
             isTruthCard = true, isDareCard = true,
             isNeverCard = true, isRuleCard = true,
-            isVoteCard = true, isPersonalCard = true;
+            isVoteCard = true, isPersonalCard = true,
+            isLikelyCard = true;
     public static boolean isDevBoxActivated = false;
 
 
@@ -25,6 +26,10 @@ public class Settings {
 
     public static void setIsDrinkCard(boolean isDrinkCard) {
         Settings.isDrinkCard = isDrinkCard;
+    }
+
+    public static void setIsLikelyCard(boolean isLikelyCard) {
+        Settings.isLikelyCard = isLikelyCard;
     }
 
     public static void setIsNeutralCard(boolean isNeutralCard) {
