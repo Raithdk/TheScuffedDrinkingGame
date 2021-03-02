@@ -5,17 +5,19 @@ import java.util.List;
 
 public class CardHandler {
 
-    String drinkCardColor = "#f57e76",
-            neutralCardColor = "#96b4fa",
-            truthCardColor = "#beebc2",
-            dareCardColor = "#e3c0ed",
-            pointCardColor = "#e9edc0";
+    String drinkCardColor = "#f06565",//"#f57e76",
+            neutralCardColor = "#57caff",
+            truthCardColor = "#66e3a4",//"#65f0aa",
+            dareCardColor = "#de96f2",
+            pointCardColor = "#e9edc0",
+            ruleCardColor = "#ff9359";
 
     private String neutralPrompts = StringMetadata.neutralPrompts;
     private String drinkPrompts = StringMetadata.drinkPrompts;
     private String truthPrompts = StringMetadata.truthPrompts;
     private String darePrompts = StringMetadata.darePrompts;
     private String pointPrompts = StringMetadata.pointPrompts;
+    private String rulePrompts = StringMetadata.rulePrompts;
 
     private List<Card> allCards = new ArrayList<>();
 
@@ -32,6 +34,7 @@ public class CardHandler {
         String truthArray[] = truthPrompts.split("\n");
         String dareArray[] = darePrompts.split("\n");
         String pointArray[] = pointPrompts.split("\n");
+        String ruleArray[] = rulePrompts.split("\n");
 
         for (String prompt : promptArray) {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
@@ -51,6 +54,14 @@ public class CardHandler {
         //Pegekort
         for (String prompt : pointArray) {
             createDrinkCard(prompt, StringMetadata.CATEGORY_POINT, pointCardColor);
+        }
+        //regelkort
+        for (String prompt : ruleArray){
+            if(prompt.contains("/x")){
+                createDrinkCard(prompt, StringMetadata.CATEGORY_RULE, ruleCardColor);
+            } else {
+                allCards.add(new Card(prompt, StringMetadata.CATEGORY_RULE,ruleCardColor));
+            }
         }
     }
 
@@ -72,6 +83,7 @@ public class CardHandler {
     }
 
     private void createDrinkCard(String prompt, String category, String color){
+
         if(prompt.contains("##")) {
             String[] drinkCard = splitCard(prompt);
             if (drinkCard.length > 2) {

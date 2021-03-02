@@ -1,7 +1,5 @@
 package com.hfad.myfirstapp;
 
-import android.graphics.Color;
-
 public class Card {
     String cardPrompt;
     String bColor;
@@ -25,10 +23,14 @@ public class Card {
         return bColor;
     }
 
-
     public String displayCard(){
         return cardPrompt;
     }
 
     public String getCategory() { return category; }
+
+    public void setCardPrompt(String replacement){
+        this.cardPrompt = replacement;
+    }
+
 }
