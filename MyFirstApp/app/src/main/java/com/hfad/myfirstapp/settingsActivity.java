@@ -20,6 +20,7 @@ public class settingsActivity extends Activity {
 
     RangeSeekBar rangeSeekBar;
     TextView gamemodeView;
+    TextView gamemodeLabel;
     CheckBox rNeutral,rDrink,rVote, rDare, rPoint,rTruth,rRule;
 
     @Override
@@ -34,6 +35,8 @@ public class settingsActivity extends Activity {
         rangeSeekBar.setSelectedMinValue(Settings.getLowSips());
         gamemodeView = findViewById(R.id.gamemode);
         gamemodeView.setText(updateGamemode((int) rangeSeekBar.getSelectedMinValue(),(int) rangeSeekBar.getSelectedMaxValue()));
+
+        gamemodeLabel = findViewById(R.id.gamemodeLabel);
 
         rNeutral = findViewById(R.id.neutralRadio);
         rDrink = findViewById(R.id.drinkRadio);
@@ -50,6 +53,19 @@ public class settingsActivity extends Activity {
         rPoint.setChecked(Settings.isPointCard);
         rTruth.setChecked(Settings.isTruthCard);
         rRule.setChecked(Settings.isRuleCard);
+
+        gamemodeLabel.setOnClickListener(new DoubleClickListener() {
+
+            @Override
+            public void onSingleClick(View v) {
+
+            }
+
+            @Override
+            public void onDoubleClick(View v) {
+                Settings.isDevBoxActivated = !Settings.isDevBoxActivated;
+            }
+        });
 
 
         rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {

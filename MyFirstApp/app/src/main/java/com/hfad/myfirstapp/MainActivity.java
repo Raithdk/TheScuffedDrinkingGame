@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
     TextView devBox;
     TextView categoryBox;
     boolean firstTime;
+    ImageButton settingsBtn;
 
 
     @Override
@@ -43,12 +44,20 @@ public class MainActivity extends Activity {
         // Set the ImageButton image scale type for fourth ImageButton
         ib.setScaleType(ImageView.ScaleType.FIT_XY);
         devBox = findViewById(R.id.devbox);
+        settingsBtn = findViewById(R.id.settingsBtn);
+        if(Settings.isDevBoxActivated) {
+            devBox.setVisibility(View.VISIBLE);
+        } else {
+            devBox.setVisibility(View.INVISIBLE);
+        }
 
-        devBox.setOnClickListener(new DoubleClickListener() {
+        settingsBtn.setOnClickListener(new DoubleClickListener() {
 
             @Override
             public void onSingleClick(View v) {
-
+                if(firstTime){
+                    onClickSettings(v);
+                }
             }
 
             @Override
@@ -62,7 +71,7 @@ public class MainActivity extends Activity {
    public void onClickSwitchCard(View view) {
         if(firstTime) {
             stopService(new Intent(this, MyService.class));
-            findViewById(R.id.settingsBtn).setVisibility(View.INVISIBLE);
+            settingsBtn.setImageResource(0);
             categoryBox.setVisibility(View.VISIBLE);
             cardButton.setText("Skift Kort");
             firstTime = false;

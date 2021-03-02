@@ -43,12 +43,12 @@
         android:layout_marginTop="4dp"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/hiSipTxt2"
-        app:layout_constraintStart_toStartOf="@+id/hiSipTxt2"
-        app:layout_constraintTop_toBottomOf="@+id/hiSipTxt2" />
+        app:layout_constraintEnd_toEndOf="@+id/gamemodeLabel"
+        app:layout_constraintStart_toStartOf="@+id/gamemodeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/gamemodeLabel" />
 
     <TextView
-        android:id="@+id/hiSipTxt2"
+        android:id="@+id/gamemodeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"

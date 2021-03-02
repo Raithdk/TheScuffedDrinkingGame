@@ -4,7 +4,7 @@ import android.view.View;
 
 public abstract class DoubleClickListener implements View.OnClickListener {
 
-    private static final long DOUBLE_CLICK_TIME_DELTA = 150;//milliseconds
+    private static final long DOUBLE_CLICK_TIME_DELTA = 200;//milliseconds
 
     long lastClickTime = 0;
 

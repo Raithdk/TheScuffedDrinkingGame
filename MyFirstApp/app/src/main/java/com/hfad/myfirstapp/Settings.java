@@ -6,6 +6,7 @@ public class Settings {
     public static boolean isDrinkCard = true, isNeutralCard = true,
             isTruthCard = true, isDareCard = true,
             isPointCard = true, isRuleCard = true, isVoteCard = true;
+    public static boolean isDevBoxActivated = false;
 
 
     public static void setHiSips(int hiSips) {
