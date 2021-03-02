@@ -20,6 +20,8 @@ public class MainActivity extends Activity {
     TextView devBox;
     TextView categoryBox;
     boolean firstTime;
+    static boolean startMusic = true;
+
     ImageButton settingsBtn;
 
 
@@ -28,7 +30,10 @@ public class MainActivity extends Activity {
         firstTime = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startService(new Intent(this, MyService.class));
+        if(startMusic) {
+            startService(new Intent(this, MyService.class));
+            startMusic = false;
+        }
         cardButton = findViewById(R.id.switch_card);
         final ImageButton ib = findViewById(R.id.settingsBtn);
         categoryBox = findViewById(R.id.cardCategory);

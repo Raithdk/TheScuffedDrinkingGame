@@ -6,17 +6,16 @@ public class StringMetadata {
             CATEGORY_DRINK = "Drik Ud!",
             CATEGORY_TRUTH = "Sandhed",
             CATEGORY_DARE = "Konsekvens",
-            CATEGORY_POINT = "Pege Kort",
+            CATEGORY_NEVER = "Jeg har Aldrig",
             CATEGORY_RULE = "Regel!",
             CATEGORY_VOTE = "Enig eller Uenig?";
 
+
     public final static String neutralPrompts = "Hvis du er den yngste i selskabet skal du drikke ud \n" +
-            "Hvis du hedder Sasha skal du drikke ud\n" +
             "Den første der bunder ud må vælge en der skal bunde\n" +
             "Alle der hellere vil spille et andet spil bunder\n" +
             "Du skal synge med på musikken der bliver spillet indtil det bliver din tur igen\n" +
             "Vælg et offer og nedstir dem til det bliver din tur igen\n" +
-            "Hedder du William Mortensen skal du bunde. Det er ikke mig der laver reglerne, det er spillet\n" +
             "Lad som om du kaster en bold til en medspiller, sørg for de griber den\n" +
             "Drik antallet af bogstaver i dit fornavn i tårer\n" +
             "Drik antal tåre som bogstaver i efternavn\n" +
@@ -34,8 +33,8 @@ public class StringMetadata {
             "Fællesskål\n" +
             "Kategori!\n" +
             "Kategori!\n" +
-            "Thunder (eller folkevogn)\n" +
-            "Drik X antal tåre, din højre sidemand drikker X-1 tåre. Dette kører rundt til X=0.\n";
+            "Thunder (Eller folkevogn)\n" +
+            "Drik X antal tåre, din højre sidemand drikker X-1 tåre. Dette kører rundt til X=0\n";
 
     public final static String drinkPrompts =
             "Alle med briller drikker /x tåre\n" +
@@ -49,10 +48,11 @@ public class StringMetadata {
                     "Alle studerende drikker /x tåre \n" +
                     "Alle med blond hår drikker /x tåre ##4\n" +
                     "Alle rødhårede må give /x tåre \n" +
-                    "Alle brunnetter må give /x tåre væk\n" +
+                    "Alle brunetter må give /x tåre væk\n" +
                     "Hvis du har et mellemnavn skal du drikke /x tåre, hvis du har mere, drik dobbelt \n" +
                     "Hvis du har mere end /x vokaler i dit navn skal du drikke /x tåre pr ekstra vokal \n" +
                     "Hvis du har mere end /x konsonanter i dit navn skal du tage 1 tår pr ekstra konsonant\n" +
+                    "Alle må køre bil, men egentlig ikke burde på grund af sit syn drikker /x tåre\n" +
                     "Sig 3 ting inden for en kategori. Den første der gætter kategorien må give /x tåre væk\n" +
                     "Alle under 170 drikker /x tåre\n" +
                     "Alle over 170 må give /x tåre væk \n" +
@@ -107,30 +107,63 @@ public class StringMetadata {
                     "Giv /x tåre ud! \n" +
                     "Giv /x tåre ud! \n" +
                     "Alle der har haft informatik drikker /x tåre \n" +
-                    "Alle der går på uni drikker /x tåre \n";
+                    "Alle der går på uni drikker /x tåre \n" +
+                    "Alle der ikke har adresse på Bornholm drikker /x tåre \n" +
+                    "Alle der har spillet warzone drikker /x tåre \n" +
+                    "Peg på den fuldeste person, de drikker /x tåre. Hvis det er dig, giv 5 tåre væk. Legend\n" +
+                    "Vælg den mest ædru person, de skal drikke /x tåre\n" +
+                    "Vælg en der skal sige en joke. Er den ikke sjov skal vedkommende drikke /x tåre!\n" +
+                    "Vælg den yngste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. \n" +
+                    "Vælg den ældste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. \n" +
+                    "Vælg den person der er bedst til ikke at bukke under for gruppepres. Vedkommende tømmer sit glas. \n" +
+                    "Udpeg person der skal stave “Rød grød med fløde”, hvis korrekt, må de give /x tåre!\n" +
+                    "Udpeg personen med den største IQ. Personen må give /x tåre ud for sit kloge hovede\n";
 
-    public final static String truthPrompts = "Hvem i dette rum ville du helst skifte plads med for en dag?\n" +
+    public final static String truthPrompts = "Skål med den i dette rum du helst ville skifte plads med for en dag?\n" +
             "Hvilken superhelte kraft vil du have og hvorfor?\n" +
             "Hvad ved spilleren til højre mere om end dig? \n" +
-            "Hvem i dette rum ville du helst have med på en øde ø? \n" +
-            "Hvem i dette rum har den værste musiksmag? \n" +
-            "Hvem i dette rum har den bedste musiksmag?\n" +
+            "Skål med den i dette rum du ville helst ville have med på en øde ø? \n" +
+            "Skål med den i dette rum der har den værste musiksmag? \n" +
+            "Skål med den i dette rum der har den bedste musiksmag?\n" +
             "Hvilke 3 ting ville du redde fra dit hus, hvis det brændte? \n" +
-            "Hvem I dette rum havde du det dårligste førstehåndsindtryk af?\n" +
+            "Skål med den i dette rum du havde du det dårligste førstehåndsindtryk af?\n" +
             "Kan du lide brød? \n" +
-            "Hvem I dette rum ville du helst kunne mute i en hel dag?\n";
+            "Skål med den i dette rum du helst ville kunne mute i en hel dag? \n" +
+            "Hvem i dette rummet har størst alkoholiske tendenser? Skål med vedkommende. De har det hårdt\n" +
+            "Skål med den person der har størst sandsynlighed for at begå mord ved et uheld\n" +
+            "Skål med den person der har størst sandsynlighed for at begå selvmord ved et uheld\n";
 
     public final static String darePrompts = "Vis dit bedste move på dansegulvet eller tøm dit glas\n" +
             "Vis et af dine 10 nyeste billeder eller videoer og fortæl historien bag\n" +
             "Syng med på din senest afspillede spotifysang eller tøm dit glas\n" +
+            "Sæt din yndlingssang på\n" +
             "Post et billede på snap- eller instastory af selskabet\n" +
-            "Tag et gruppebillede (med hele gruppen Thomas (eller bare med William))\n";
+            "Tag et gruppebillede\n";
 
-    public final static String pointPrompts = "Udpeg den yngste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. ##3-5\n" +
-            "Udpeg den ældste spiller, de skal drikke /x tåre hvis du gættede korrekt ellers tag dem selv. ##3-5\n" +
-            "Peg på den mest ædru person, de skal drikke /x tåre. ##3-6\n" +
-            "Peg på den fuldeste person, de drikker /x tåre. Hvis det er dig, giv 5 tåre væk. Legend. ##3\n" +
-            "Udpeg person der skal stave “Rød grød med fløde”, hvis korrekt, må de give /x tåre ##3-4\n";
+    public final static String neverHaveIEverPrompts = "Kysset med en, og glemt det dagen efter\n" +
+            "69… Nice\n" +
+            "Været på stripklub\n" +
+            "Haft sex i et telt\n" +
+            "Spist euforiserende svampe\n" +
+            "Taget snus\n" +
+            "Røget hash\n" +
+            "Været fuld hver dag i en hel uge\n" +
+            "Blevet stoppet af politiet\n" +
+            "Løjet om mit bodycount\n" +
+            "Trådt i en lort\n" +
+            "Kysset en af samme køn\n" +
+            "Taget del i nøgenløb\n" +
+            "Gået en uge uden bad\n" +
+            "Blevet stoppet af politiet\n" +
+            "Spillet mere end 4 timer uden at rejse mig\n" +
+            "Været bange for sit helbred efter større mængder koffein\n" +
+            "Pisset i en flaske\n" +
+            "Faldet på cykel i en brandert\n" +
+            "Brækket mig på en bar/bodega\n" +
+            "Brækket mig på et spillested/klub\n" +
+            "Tømt karaflen i et offentligt svømmebassin\n" +
+            "Stjålet fra arbejde\n" +
+            "Vågnet op i det fri, morgenen efter en fest\n";
 
     public final static String rulePrompts = "Vælg et nyt navn til en medspiller \n" +
             "Vælg et nyt navn til en medspiller \n" +
@@ -154,5 +187,21 @@ public class StringMetadata {
             "Dansk eller Matematik?\n" +
             "Just Dance eller WII sport?\n" +
             "Matematikfessor eller Matematik i Måneby? \n" +
-            "Koalaer?\n";
+            "Koalaer eller pandaer?\n" +
+            "Vodka eller Gin? \n" +
+            "Pepsi eller Coca Cola? \n" +
+            "Faxe Kondi eller Sprite?\n" +
+            "Hitten eller Musikhuset?\n" +
+            "Jagermeister eller Rom\n" +
+            "Nutella eller peanutbutter?\n" +
+            "Gå på regnbuer eller snakke med fluer? \n" +
+            "Lave tomme dåser (uden pant) hver gang du klapper eller et barn døbes dit fulde navn hver gang du slår dig?\n";
+
+    public static String personalPrompts = "Hvis du hedder Sasha skal du drikke ud\n" +
+            "Hedder du William Mortensen skal du bunde. Det er ikke mig der laver reglerne, det er spillet\n" +
+            "Hvis du gik i HTX’s Y-klasse skal du bunde\n" +
+            "Hvis dit efternavn starter med R, skal du tage et shot\n" +
+            "Hvis du har et mellemnavn skal du tage et shot\n" +
+            "Hvis dit efternavn starter med “Fredrik” skal du bunde\n" +
+            "Hvis dit navn er Thomas Raith må du give en bund til Kristian Mathias Regnarson\n";
 }

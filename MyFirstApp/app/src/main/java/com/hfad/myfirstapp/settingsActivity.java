@@ -5,12 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -21,7 +18,7 @@ public class settingsActivity extends Activity {
     RangeSeekBar rangeSeekBar;
     TextView gamemodeView;
     TextView gamemodeLabel;
-    CheckBox rNeutral,rDrink,rVote, rDare, rPoint,rTruth,rRule;
+    CheckBox rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +36,20 @@ public class settingsActivity extends Activity {
         gamemodeLabel = findViewById(R.id.gamemodeLabel);
 
         rNeutral = findViewById(R.id.neutralRadio);
+        rPersonal = findViewById(R.id.personalRadio);
         rDrink = findViewById(R.id.drinkRadio);
         rDare = findViewById(R.id.dareRadio);
         rVote = findViewById(R.id.voteRadio);
-        rPoint = findViewById(R.id.pointRadio);
+        rNever = findViewById(R.id.neverRadio);
         rTruth = findViewById(R.id.truthRadio);
         rRule = findViewById(R.id.ruleRadio);
 
         rNeutral.setChecked(Settings.isNeutralCard);
+        rPersonal.setChecked(Settings.isPersonalCard);
         rDrink.setChecked(Settings.isDrinkCard);
         rDare.setChecked(Settings.isDareCard);
         rVote.setChecked(Settings.isVoteCard);
-        rPoint.setChecked(Settings.isPointCard);
+        rNever.setChecked(Settings.isNeverCard);
         rTruth.setChecked(Settings.isTruthCard);
         rRule.setChecked(Settings.isRuleCard);
 
@@ -105,10 +104,11 @@ public class settingsActivity extends Activity {
         Settings.setHiSips(highLimitInt);
 
         Settings.setIsNeutralCard(rNeutral.isChecked());
+        Settings.setIsPersonalCard(rPersonal.isChecked());
         Settings.setIsDrinkCard(rDrink.isChecked());
         Settings.setIsDareCard(rDare.isChecked());
         Settings.setIsVoteCard(rVote.isChecked());
-        Settings.setIsPointCard(rPoint.isChecked());
+        Settings.setIsNeverCard(rNever.isChecked());
         Settings.setIsTruthCard(rTruth.isChecked());
         Settings.setIsRuleCard(rRule.isChecked());
 
@@ -131,15 +131,16 @@ public class settingsActivity extends Activity {
                     return "Gambler";
                 }
             }
+            if(high > 8 && low >7){
+                return "Are you thinking straight?";
+            }
             if ((high > 7 && low > 4) && (high-low < 5)){
-                return "Alcoholic mode";
+                return "Alcoholic";
             }
             if(high <= 3){
                 return "Pussy Mode";
             }
-            if(high > 7 && low >4){
-                return "Are you thinking straight?";
-            }
+
             if(high <= 5 && low <=2 ){
                 return "Normal Mode";
             }

@@ -5,10 +5,12 @@ public class Settings {
     public static String gamemode = "Normal";
     public static boolean isDrinkCard = true, isNeutralCard = true,
             isTruthCard = true, isDareCard = true,
-            isPointCard = true, isRuleCard = true, isVoteCard = true;
+            isNeverCard = true, isRuleCard = true,
+            isVoteCard = true, isPersonalCard = true;
     public static boolean isDevBoxActivated = false;
 
 
+    public static void setIsPersonalCard(boolean isPersonalCard){ Settings.isPersonalCard= isPersonalCard; }
     public static void setHiSips(int hiSips) {
         Settings.hiSips = hiSips;
     }
@@ -29,8 +31,8 @@ public class Settings {
         Settings.isNeutralCard = isNeutralCard;
     }
 
-    public static void setIsPointCard(boolean isPointCard) {
-        Settings.isPointCard = isPointCard;
+    public static void setIsNeverCard(boolean isPointCard) {
+        Settings.isNeverCard = isNeverCard;
     }
 
     public static void setIsRuleCard(boolean isRuleCard) {

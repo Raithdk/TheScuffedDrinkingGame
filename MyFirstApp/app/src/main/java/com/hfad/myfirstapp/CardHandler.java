@@ -6,14 +6,15 @@ import java.util.List;
 public class CardHandler {
 
     final String drinkCardColor = "#f06565",//"#f57e76",
-            neutralCardColor = "#57caff",
+            neutralCardColor = "#e9edc0",
             truthCardColor = "#66e3a4",//"#65f0aa",
             dareCardColor = "#de96f2",
-            pointCardColor = "#e9edc0",
+            neverCardColor = "#57caff",
             ruleCardColor = "#ff9359",
-            voteCardColor = "#e9ff57";
+            voteCardColor = "#e9ff57",
+            personalCardColor = "#93bbf0";
 
-    String[] promptArray, drinkArray, truthArray, dareArray, pointArray, ruleArray, voteArray;
+    String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray;
 
 
     private List<Card> allCards = new ArrayList<>();
@@ -30,9 +31,18 @@ public class CardHandler {
         drinkArray = StringMetadata.drinkPrompts.split("\n");
         truthArray = StringMetadata.truthPrompts.split("\n");
         dareArray = StringMetadata.darePrompts.split("\n");
-        pointArray = StringMetadata.pointPrompts.split("\n");
+        neverArray = StringMetadata.neverHaveIEverPrompts.split("\n");
         ruleArray = StringMetadata.rulePrompts.split("\n");
         voteArray = StringMetadata.votePrompts.split("\n");
+
+        personalArray = StringMetadata.personalPrompts.split("\n");
+
+        if(Settings.isPersonalCard){
+            for(String prompt : personalArray){
+                allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, personalCardColor));
+            }
+
+        }
 
         if(Settings.isNeutralCard){
         for (String prompt : promptArray) {
@@ -50,14 +60,14 @@ public class CardHandler {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_TRUTH, truthCardColor));
         }}
         //konsekvenskort
-        if(Settings.isDrinkCard){
+        if(Settings.isDareCard){
         for (String prompt : dareArray) {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_DARE, dareCardColor));
         }}
         //Pegekort
-        if(Settings.isPointCard){
-        for (String prompt : pointArray) {
-            createDrinkCard(prompt, StringMetadata.CATEGORY_POINT, pointCardColor);
+        if(Settings.isNeverCard){
+        for (String prompt :  neverArray) {
+            createDrinkCard(prompt, StringMetadata.CATEGORY_NEVER, neverCardColor);
         }}
         //regelkort
         if(Settings.isRuleCard){
@@ -73,6 +83,10 @@ public class CardHandler {
         for (String prompt : voteArray) {
             allCards.add(new DrinkCard((prompt + "\n[/x tåre]"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
         }}
+
+        if(allCards.isEmpty()){
+            allCards.add(new Card("Du har slået alle kort fra, din bøv!", StringMetadata.CATEGORY_NEUTRAL,neutralCardColor));
+        }
     }
 
     private List<Card> shuffleCards(List<Card> list) {
@@ -129,7 +143,7 @@ public class CardHandler {
     int cardCounter = 0;
 
     public Card switchCards() {
-        if (cardCounter >= allCards.size()) {
+        if (cardCounter > allCards.size()-1) {
             allCards.clear();
             CreateCards();
 

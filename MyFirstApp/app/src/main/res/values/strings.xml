@@ -4,5 +4,6 @@
     <string name="mainLabel">Velkommen til Det Scuffed Drukspil</string>
     <string name="settingssavebtn">Return</string>
     <dimen name="size">175dp</dimen>
+    <dimen name="checkBoxTxt">20sp</dimen>
 
 </resources>
