@@ -28,13 +28,36 @@
         android:id="@+id/drinkRange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="148dp"
         app:absoluteMaxValue="1"
         app:absoluteMinValue="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/gamemode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/hiSipTxt2"
+        app:layout_constraintStart_toStartOf="@+id/hiSipTxt2"
+        app:layout_constraintTop_toBottomOf="@+id/hiSipTxt2" />
+
+    <TextView
+        android:id="@+id/hiSipTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="Gamemode: "
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/drinkRange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveBtn"
@@ -50,26 +73,72 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <TextView
-        android:id="@+id/hiSipTxt2"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/drinkRadio"
+        android:layout_width="@dimen/size"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="Gamemode: "
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/drinkRange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="40dp"
+        android:text="Drink Cards"
+        app:layout_constraintEnd_toStartOf="@+id/truthRadio"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toEndOf="@+id/neutralRadio"
+        app:layout_constraintTop_toBottomOf="@+id/drinkRange" />
 
-    <TextView
-        android:id="@+id/gamemode"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/ruleRadio"
+        android:layout_width="@dimen/size"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/hiSipTxt2"
-        app:layout_constraintStart_toStartOf="@+id/hiSipTxt2"
-        app:layout_constraintTop_toBottomOf="@+id/hiSipTxt2" />
+        android:layout_marginTop="4dp"
+        android:text="Rule Cards"
+        app:layout_constraintStart_toStartOf="@+id/dareRadio"
+        app:layout_constraintTop_toBottomOf="@+id/dareRadio" />
+
+    <CheckBox
+        android:id="@+id/voteRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Vote Cards"
+        app:layout_constraintStart_toStartOf="@+id/neutralRadio"
+        app:layout_constraintTop_toBottomOf="@+id/neutralRadio" />
+
+    <CheckBox
+        android:id="@+id/dareRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Dare Cards"
+        app:layout_constraintStart_toStartOf="@+id/truthRadio"
+        app:layout_constraintTop_toBottomOf="@+id/truthRadio" />
+
+
+    <CheckBox
+        android:id="@+id/neutralRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Netural Cards"
+        app:layout_constraintStart_toStartOf="@+id/drinkRange"
+        app:layout_constraintTop_toBottomOf="@+id/drinkRadio" />
+
+    <CheckBox
+        android:id="@+id/truthRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:text="Truth Cards"
+        app:layout_constraintEnd_toEndOf="@+id/drinkRange"
+        app:layout_constraintTop_toTopOf="@+id/neutralRadio" />
+
+    <CheckBox
+        android:id="@+id/pointRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Point Cards"
+        app:layout_constraintStart_toStartOf="@+id/voteRadio"
+        app:layout_constraintTop_toBottomOf="@+id/voteRadio" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

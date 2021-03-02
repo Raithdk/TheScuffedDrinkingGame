@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CardHandler {
 
-    String drinkCardColor = "#f06565",//"#f57e76",
+    final String drinkCardColor = "#f06565",//"#f57e76",
             neutralCardColor = "#57caff",
             truthCardColor = "#66e3a4",//"#65f0aa",
             dareCardColor = "#de96f2",
@@ -13,13 +13,8 @@ public class CardHandler {
             ruleCardColor = "#ff9359",
             voteCardColor = "#e9ff57";
 
-    private String neutralPrompts = StringMetadata.neutralPrompts;
-    private String drinkPrompts = StringMetadata.drinkPrompts;
-    private String truthPrompts = StringMetadata.truthPrompts;
-    private String darePrompts = StringMetadata.darePrompts;
-    private String pointPrompts = StringMetadata.pointPrompts;
-    private String rulePrompts = StringMetadata.rulePrompts;
-    private String votePrompts = StringMetadata.votePrompts;
+    String[] promptArray, drinkArray, truthArray, dareArray, pointArray, ruleArray, voteArray;
+
 
     private List<Card> allCards = new ArrayList<>();
 
@@ -31,45 +26,47 @@ public class CardHandler {
     }
 
     private void CreateCards() {
-        String promptArray[] = neutralPrompts.split("\n");
-        String drinkArray[] = drinkPrompts.split("\n");
-        String truthArray[] = truthPrompts.split("\n");
-        String dareArray[] = darePrompts.split("\n");
-        String pointArray[] = pointPrompts.split("\n");
-        String ruleArray[] = rulePrompts.split("\n");
-        String voteArray[] = votePrompts.split("\n");
+        makePrompts();
 
+        if(Settings.isNeutralCard){
         for (String prompt : promptArray) {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
         }
+        }
 
+        if(Settings.isDrinkCard){
         for (String prompt : drinkArray) {
             createDrinkCard(prompt, StringMetadata.CATEGORY_DRINK, drinkCardColor);
-        }
+        }}
         //sandhedskort
+        if(Settings.isTruthCard){
         for (String prompt : truthArray) {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_TRUTH, truthCardColor));
-        }
+        }}
         //konsekvenskort
+        if(Settings.isDrinkCard){
         for (String prompt : dareArray) {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_DARE, dareCardColor));
-        }
+        }}
         //Pegekort
+        if(Settings.isPointCard){
         for (String prompt : pointArray) {
             createDrinkCard(prompt, StringMetadata.CATEGORY_POINT, pointCardColor);
-        }
+        }}
         //regelkort
+        if(Settings.isRuleCard){
         for (String prompt : ruleArray){
             if(prompt.contains("/x")){
                 createDrinkCard(prompt, StringMetadata.CATEGORY_RULE, ruleCardColor);
             } else {
                 allCards.add(new Card(prompt, StringMetadata.CATEGORY_RULE,ruleCardColor));
             }
-        }
+        }}
         //votekort
+        if(Settings.isVoteCard){
         for (String prompt : voteArray) {
-            allCards.add(new DrinkCard((prompt + "\n [/x tåre]"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
-        }
+            allCards.add(new DrinkCard((prompt + "\n[/x tåre]"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
+        }}
     }
 
     private List<Card> shuffleCards(List<Card> list) {
@@ -138,6 +135,31 @@ public class CardHandler {
         cardCounter++;
         System.out.println(cardCounter);
         return c;
+    }
+
+    private void makePrompts(){
+        if(Settings.isNeutralCard) {
+            promptArray = StringMetadata.neutralPrompts.split("\n");
+        }
+        if(Settings.isDrinkCard) {
+            drinkArray = StringMetadata.drinkPrompts.split("\n");
+        }
+        if(Settings.isTruthCard){
+            truthArray = StringMetadata.truthPrompts.split("\n");
+        }
+        if(Settings.isDareCard){
+            dareArray = StringMetadata.darePrompts.split("\n");
+        }
+        if(Settings.isPointCard){
+            pointArray = StringMetadata.pointPrompts.split("\n");
+        }
+        if(Settings.isRuleCard){
+            ruleArray = StringMetadata.rulePrompts.split("\n");
+        }
+        if(Settings.isVoteCard){
+            voteArray = StringMetadata.votePrompts.split("\n");
+        }
+
     }
 
     public String updateDevbox() {

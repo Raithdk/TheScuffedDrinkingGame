@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,8 @@ public class settingsActivity extends Activity {
 
     RangeSeekBar rangeSeekBar;
     TextView gamemodeView;
+    CheckBox rNeutral,rDrink,rVote, rDare, rPoint,rTruth,rRule;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -31,6 +35,23 @@ public class settingsActivity extends Activity {
         gamemodeView = findViewById(R.id.gamemode);
         gamemodeView.setText(updateGamemode((int) rangeSeekBar.getSelectedMinValue(),(int) rangeSeekBar.getSelectedMaxValue()));
 
+        rNeutral = findViewById(R.id.neutralRadio);
+        rDrink = findViewById(R.id.drinkRadio);
+        rDare = findViewById(R.id.dareRadio);
+        rVote = findViewById(R.id.voteRadio);
+        rPoint = findViewById(R.id.pointRadio);
+        rTruth = findViewById(R.id.truthRadio);
+        rRule = findViewById(R.id.ruleRadio);
+
+        rNeutral.setChecked(Settings.isNeutralCard);
+        rDrink.setChecked(Settings.isDrinkCard);
+        rDare.setChecked(Settings.isDareCard);
+        rVote.setChecked(Settings.isVoteCard);
+        rPoint.setChecked(Settings.isPointCard);
+        rTruth.setChecked(Settings.isTruthCard);
+        rRule.setChecked(Settings.isRuleCard);
+
+
         rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
             @Override
             public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue) {
@@ -39,9 +60,6 @@ public class settingsActivity extends Activity {
                 String gamemode = updateGamemode(lowRange,highRange);
                 gamemodeView.setText(gamemode);
                 Settings.setGamemode(gamemode);
-
-
-
 
             }
         });
@@ -67,10 +85,16 @@ public class settingsActivity extends Activity {
 
         int lowLimitInt = (int) rangeSeekBar.getSelectedMinValue();
         int highLimitInt = (int) rangeSeekBar.getSelectedMaxValue();
-
         Settings.setLowSips(lowLimitInt);
         Settings.setHiSips(highLimitInt);
 
+        Settings.setIsNeutralCard(rNeutral.isChecked());
+        Settings.setIsDrinkCard(rDrink.isChecked());
+        Settings.setIsDareCard(rDare.isChecked());
+        Settings.setIsVoteCard(rVote.isChecked());
+        Settings.setIsPointCard(rPoint.isChecked());
+        Settings.setIsTruthCard(rTruth.isChecked());
+        Settings.setIsRuleCard(rRule.isChecked());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
