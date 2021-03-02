@@ -10,7 +10,8 @@ public class CardHandler {
             truthCardColor = "#66e3a4",//"#65f0aa",
             dareCardColor = "#de96f2",
             pointCardColor = "#e9edc0",
-            ruleCardColor = "#ff9359";
+            ruleCardColor = "#ff9359",
+            voteCardColor = "#e9ff57";
 
     private String neutralPrompts = StringMetadata.neutralPrompts;
     private String drinkPrompts = StringMetadata.drinkPrompts;
@@ -18,6 +19,7 @@ public class CardHandler {
     private String darePrompts = StringMetadata.darePrompts;
     private String pointPrompts = StringMetadata.pointPrompts;
     private String rulePrompts = StringMetadata.rulePrompts;
+    private String votePrompts = StringMetadata.votePrompts;
 
     private List<Card> allCards = new ArrayList<>();
 
@@ -35,6 +37,7 @@ public class CardHandler {
         String dareArray[] = darePrompts.split("\n");
         String pointArray[] = pointPrompts.split("\n");
         String ruleArray[] = rulePrompts.split("\n");
+        String voteArray[] = votePrompts.split("\n");
 
         for (String prompt : promptArray) {
             allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
@@ -62,6 +65,10 @@ public class CardHandler {
             } else {
                 allCards.add(new Card(prompt, StringMetadata.CATEGORY_RULE,ruleCardColor));
             }
+        }
+        //votekort
+        for (String prompt : voteArray) {
+            allCards.add(new DrinkCard((prompt + "\n [/x tåre]"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
         }
     }
 

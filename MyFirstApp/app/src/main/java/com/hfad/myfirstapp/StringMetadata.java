@@ -7,7 +7,8 @@ public class StringMetadata {
             CATEGORY_TRUTH = "Sandhed",
             CATEGORY_DARE = "Konsekvens",
             CATEGORY_POINT = "Pege Kort",
-            CATEGORY_RULE = "Regel!";
+            CATEGORY_RULE = "Regel!",
+            CATEGORY_VOTE = "Enig eller Uenig?";
 
     public final static String neutralPrompts = "Hvis du er den yngste i selskabet skal du drikke ud \n" +
             "Hvis du hedder Sasha skal du drikke ud\n" +
@@ -139,4 +140,19 @@ public class StringMetadata {
             "Regel kort. Gælder til næste regel kort er trukket.\n" +
             "Alle skal bruge deres venstre hånd til at drikke og spille spillet de næste /x runder. 2 straf tåre ved fejl\n" +
             "Vælg en druk bøddel - Hver gang du drikker må din bøddel give 1 tår væk.\n";
+
+    public final static String votePrompts = "Kat eller hund? \n" +
+            "Øl eller sommersby? \n" +
+            "Håndbold eller fodbold?\n" +
+            "FIFA eller Warzone?\n" +
+            "Friends eller The Office?\n" +
+            "Rød eller blå hue?\n" +
+            "Skummetmælk eller letmælk?\n" +
+            "Sommer eller vinter? \n" +
+            "Hyggedruk eller fest i byen?\n" +
+            "Volley eller badminton?\n" +
+            "Dansk eller Matematik?\n" +
+            "Just Dance eller WII sport?\n" +
+            "Matematikfessor eller Matematik i Måneby? \n" +
+            "Koalaer?\n";
 }

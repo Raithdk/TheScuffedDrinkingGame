@@ -31,7 +31,7 @@ public class DrinkCard extends Card {
             String[] splitPrompt = super.cardPrompt.split("/x");
             return splitPrompt[0] + sips + splitPrompt[1];
         }
-        return cardPrompt + "Test";
+        return cardPrompt;
 
     }
 
