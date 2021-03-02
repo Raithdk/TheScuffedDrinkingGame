@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Drukspil V0.1</string>
-    <string name="mainBtn">Skift kort</string>
+    <string name="mainBtn">Start Spil</string>
     <string name="mainLabel">Velkommen til Det Scuffed Drukspil</string>
+    <string name="settingssavebtn">Return</string>
 
 </resources>

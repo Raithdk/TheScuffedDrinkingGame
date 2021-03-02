@@ -28,11 +28,11 @@
         android:id="@+id/drinkRange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="196dp"
         app:absoluteMaxValue="1"
         app:absoluteMinValue="10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,7 @@
         android:layout_marginBottom="16dp"
         android:onClick="onSave"
         android:gravity="center"
-        android:text="Save"
+        android:text="@string/settingssavebtn"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:text="Gamemode: "
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/drinkRange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/hiSipTxt2"
         app:layout_constraintStart_toStartOf="@+id/hiSipTxt2"
         app:layout_constraintTop_toBottomOf="@+id/hiSipTxt2" />

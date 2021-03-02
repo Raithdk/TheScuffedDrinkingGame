@@ -60,8 +60,7 @@ public class settingsActivity extends Activity {
     }
 
     public void onReturn(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        onSave(view);
     }
 
     public void onSave(View view){
