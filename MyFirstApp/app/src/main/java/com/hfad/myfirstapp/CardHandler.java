@@ -26,7 +26,13 @@ public class CardHandler {
     }
 
     private void CreateCards() {
-        makePrompts();
+        promptArray = StringMetadata.neutralPrompts.split("\n");
+        drinkArray = StringMetadata.drinkPrompts.split("\n");
+        truthArray = StringMetadata.truthPrompts.split("\n");
+        dareArray = StringMetadata.darePrompts.split("\n");
+        pointArray = StringMetadata.pointPrompts.split("\n");
+        ruleArray = StringMetadata.rulePrompts.split("\n");
+        voteArray = StringMetadata.votePrompts.split("\n");
 
         if(Settings.isNeutralCard){
         for (String prompt : promptArray) {
@@ -135,31 +141,6 @@ public class CardHandler {
         cardCounter++;
         System.out.println(cardCounter);
         return c;
-    }
-
-    private void makePrompts(){
-        if(Settings.isNeutralCard) {
-            promptArray = StringMetadata.neutralPrompts.split("\n");
-        }
-        if(Settings.isDrinkCard) {
-            drinkArray = StringMetadata.drinkPrompts.split("\n");
-        }
-        if(Settings.isTruthCard){
-            truthArray = StringMetadata.truthPrompts.split("\n");
-        }
-        if(Settings.isDareCard){
-            dareArray = StringMetadata.darePrompts.split("\n");
-        }
-        if(Settings.isPointCard){
-            pointArray = StringMetadata.pointPrompts.split("\n");
-        }
-        if(Settings.isRuleCard){
-            ruleArray = StringMetadata.rulePrompts.split("\n");
-        }
-        if(Settings.isVoteCard){
-            voteArray = StringMetadata.votePrompts.split("\n");
-        }
-
     }
 
     public String updateDevbox() {
