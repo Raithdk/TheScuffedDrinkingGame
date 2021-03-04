@@ -226,4 +226,17 @@ public class StringMetadata {
             "Tage en tilfældig pille i byen\n" +
             "Spise alt når de bliver fulde\n" +
             "Eje for mange dyr\n";
+
+    public static String[] HELP_TEXT ={"Druk kortene beskriver handlinger der enten ender ud i at personen med mobilen selv skal drikke, må vælge nogle der må give tåre væk eller selv at må give tåre til væk.",
+                                "Selskabskort er neutrale kort som ikke indeholder et specifikt antal tåre. De kan ses som ukategoriseret kort.",
+                                "Kortet viser to ting. Der stemmes om hvilken der er den bedste. Første \"påstand\" et en hånd/tommel op, anden er hånd/tommel ned. Undertallet drikker antal tåre som personer i overtallet.",
+                                "Sandheds kortet fremviser en påstand. Hvis der ikke står skål skal man selv svare på påstanden. Står der skål skal man vælge den person man føler der passer bedst til påstanden og skåle med dem",
+                                "Jeg Har Aldrig fremviser et scenarie. Alle som har gjort været i dette scenarie drikker en tår.",
+                                "Konsekvens kort beskriver noget man skal gøre. Hvis ikke dette udføres skal en straf tildeles.",
+                                "Tæl ned fra 3. Alle peger på den person de mener der er mest tilbøjelig til at gøre den givne ting. Alle drikker antal tåre som der personer som peger på en.\n",
+                                "Regelkort beskriver regler (duh) som gælder under spillet. Hvis antal runder reglen gælder samt staf tåre ikke er specificeret gælder reglerne resten af spillet med 1 straftår. "};
+
+    public static String getHelpText(int i){
+        return HELP_TEXT[i];
+    }
 }

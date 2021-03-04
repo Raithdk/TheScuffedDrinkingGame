@@ -1,9 +1,28 @@
 <resources>
-    <string name="app_name">Drukspil V0.1</string>
+    <string name="app_name">Det Scuffed Drukspil</string>
     <string name="mainBtn">Start Spil</string>
     <string name="mainLabel">Velkommen til Det Scuffed Drukspil</string>
     <string name="settingssavebtn">Return</string>
     <dimen name="size">175dp</dimen>
+    <dimen name="helpBtnSize">55dp</dimen>
     <dimen name="checkBoxTxt">20sp</dimen>
+
+    <color name="halfColor">#ea3f3f</color>
+    <color name="greyBackground">#dbdbdb</color>
+    <string name="neutralCat">Selskabs Kort</string>
+    <string name="drinkCat">Drik Ud!</string>
+    <string name="truthCat">Sandhed</string>
+    <string name="dareCat">Konsekvens</string>
+    <string name="neverCat">Jeg Har Aldrig</string>
+    <string name="ruleCat">Regel!</string>
+    <string name="voteCat">Enig eller Uenig?</string>
+    <string name="likelyCat">Mest Tilbøjelig Til</string>
+    <string name="helpLabel">Forstår du virkelig ingenting?</string>
+    <string name="helpText">Du er fandme dum...</string>
+
+
+    <dimen name="diceBtnHeight">70dp</dimen>
+    <dimen name="diceBtnWidth">115dp</dimen>
+    <dimen name="diceBtnTxtSize">30sp</dimen>
 
 </resources>

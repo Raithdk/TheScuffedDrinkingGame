@@ -17,14 +17,12 @@ public class CardHandler {
 
     String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray, likelyArray;
 
-
     private List<Card> allCards = new ArrayList<>();
 
     public CardHandler() {
 
         CreateCards();
 
-        this.allCards = shuffleCards(allCards);
     }
 
     private void CreateCards() {
@@ -94,6 +92,7 @@ public class CardHandler {
         if(allCards.isEmpty()){
             allCards.add(new Card("Du har slået alle kort fra, din bøv!", StringMetadata.CATEGORY_NEUTRAL,neutralCardColor));
         }
+        allCards = shuffleCards(allCards);
     }
 
     private List<Card> shuffleCards(List<Card> list) {
@@ -153,14 +152,11 @@ public class CardHandler {
         if (cardCounter > allCards.size()-1) {
             allCards.clear();
             CreateCards();
-
-            allCards = shuffleCards(allCards);
             cardCounter = 0;
         }
 
         Card c = allCards.get(cardCounter);
         cardCounter++;
-        System.out.println(cardCounter);
         return c;
     }
 

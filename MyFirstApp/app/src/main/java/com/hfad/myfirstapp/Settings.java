@@ -7,7 +7,7 @@ public class Settings {
             isTruthCard = true, isDareCard = true,
             isNeverCard = true, isRuleCard = true,
             isVoteCard = true, isPersonalCard = true,
-            isLikelyCard = true;
+            isLikelyCard = true, isDiceGame = true;
     public static boolean isDevBoxActivated = false;
 
 
@@ -28,6 +28,7 @@ public class Settings {
         Settings.isDrinkCard = isDrinkCard;
     }
 
+    public static void setIsDiceGame(boolean diceGame){ isDiceGame = diceGame; }
     public static void setIsLikelyCard(boolean isLikelyCard) {
         Settings.isLikelyCard = isLikelyCard;
     }
@@ -36,7 +37,7 @@ public class Settings {
         Settings.isNeutralCard = isNeutralCard;
     }
 
-    public static void setIsNeverCard(boolean isPointCard) {
+    public static void setIsNeverCard(boolean isNeverCard) {
         Settings.isNeverCard = isNeverCard;
     }
 

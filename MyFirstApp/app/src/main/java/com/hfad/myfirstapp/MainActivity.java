@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 
 import android.widget.Button;
@@ -36,18 +35,11 @@ public class MainActivity extends Activity {
         }
         cardButton = findViewById(R.id.switch_card);
         final ImageButton ib = findViewById(R.id.settingsBtn);
+        final ImageButton ib1 = findViewById(R.id.diceBtn);
         categoryBox = findViewById(R.id.cardCategory);
         categoryBox.setVisibility(View.INVISIBLE);
-        // Get the last ImageButton's layout parameters
-        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) ib.getLayoutParams();
-        // Set the height of this ImageButton
-        params.height = 100;
-        // Set the width of that ImageButton
-        params.width = 100;
-        // Apply the updated layout parameters to last ImageButton
-        ib.setLayoutParams(params);
-        // Set the ImageButton image scale type for fourth ImageButton
-        ib.setScaleType(ImageView.ScaleType.FIT_XY);
+        setBtnSize(ib);
+        setBtnSize(ib1);
         devBox = findViewById(R.id.devbox);
         settingsBtn = findViewById(R.id.settingsBtn);
         if(Settings.isDevBoxActivated) {
@@ -72,11 +64,30 @@ public class MainActivity extends Activity {
         });
 
     }
+    public void openDiceGame(View view){
+        Intent intent = new Intent(this, diceGameActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void setBtnSize(ImageButton b){
+        // Get the last ImageButton's layout parameters
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) b.getLayoutParams();
+        // Set the height of this ImageButton
+        params.height = 100;
+        // Set the width of that ImageButton
+        params.width = 100;
+        // Apply the updated layout parameters to last ImageButton
+        b.setLayoutParams(params);
+        // Set the ImageButton image scale type for fourth ImageButton
+        b.setScaleType(ImageView.ScaleType.FIT_XY);
+    }
 
    public void onClickSwitchCard(View view) {
         if(firstTime) {
             stopService(new Intent(this, MyService.class));
             settingsBtn.setImageResource(0);
+            findViewById(R.id.diceBtn).setVisibility(View.INVISIBLE);
             categoryBox.setVisibility(View.VISIBLE);
             cardButton.setText("Skift Kort");
             firstTime = false;

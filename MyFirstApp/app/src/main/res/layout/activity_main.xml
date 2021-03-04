@@ -21,6 +21,16 @@
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/cog" />
 
+    <ImageButton
+        android:id="@+id/diceBtn"
+        android:layout_width="13dp"
+        android:layout_height="10dp"
+        android:background="@null"
+        android:onClick="openDiceGame"
+        android:src="@drawable/die"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/devbox"
         android:layout_width="wrap_content"

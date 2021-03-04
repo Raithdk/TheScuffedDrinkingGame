@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/diceBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#019053"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".diceGameActivity">
+
+
+    <ImageButton
+        android:id="@+id/returnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@null"
+        android:rotation="180"
+        android:onClick="onReturn"
+        android:src="@drawable/abc_vector_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/fakeView"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/diceRollBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/halfView"
+        android:layout_width="800dp"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="#e05353"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fakeView"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/numberDivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Fuck The Dealer!"
+        android:textColor="@color/black"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/diceRollBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/diceRollBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/purple_corner"
+        android:onClick="onRollDice"
+        android:text="Rul Terning"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/fNumberView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text=""
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/diceRollBtn"
+        app:layout_constraintEnd_toStartOf="@+id/numberDivider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lNumberView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text=""
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/diceRollBtn"
+        app:layout_constraintStart_toEndOf="@+id/numberDivider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/infoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberDivider" />
+
+    <Button
+        android:id="@+id/button"
+
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="216dp"
+        android:text="1"
+        android:textSize="@dimen/diceBtnTxtSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:text="2"
+        android:textSize="@dimen/diceBtnTxtSize"
+        app:layout_constraintEnd_toEndOf="@+id/fakeView"
+        app:layout_constraintStart_toStartOf="@+id/halfView"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="3"
+        android:textSize="@dimen/diceBtnTxtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:textSize="@dimen/diceBtnTxtSize"
+        android:layout_marginTop="19dp"
+        android:text="4"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:textSize="@dimen/diceBtnTxtSize"
+        android:text="5"
+        app:layout_constraintEnd_toStartOf="@+id/halfView"
+        app:layout_constraintStart_toStartOf="@+id/halfView"
+        app:layout_constraintTop_toTopOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:textSize="@dimen/diceBtnTxtSize"
+        android:text="6"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:textSize="@dimen/diceBtnTxtSize"
+        android:layout_marginTop="19dp"
+        android:text="7"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:textSize="@dimen/diceBtnTxtSize"
+        android:text="8"
+        app:layout_constraintEnd_toStartOf="@+id/halfView"
+        app:layout_constraintStart_toStartOf="@+id/halfView"
+        app:layout_constraintTop_toTopOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="@dimen/diceBtnWidth"
+        android:layout_height="@dimen/diceBtnHeight"
+        android:background="@drawable/purple_corner"
+        android:textSize="@dimen/diceBtnTxtSize"
+        android:text="9"
+        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="@+id/button7" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

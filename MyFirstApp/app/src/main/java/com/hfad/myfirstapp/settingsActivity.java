@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -18,14 +19,13 @@ public class settingsActivity extends Activity {
     RangeSeekBar rangeSeekBar;
     TextView gamemodeView;
     TextView gamemodeLabel;
-    CheckBox rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule, rLikely;
+    CheckBox rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule, rLikely, rDice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
 
         rangeSeekBar = findViewById(R.id.drinkRange);
         rangeSeekBar.setSelectedMaxValue(Settings.getHiSips());
@@ -44,6 +44,7 @@ public class settingsActivity extends Activity {
         rTruth = findViewById(R.id.truthRadio);
         rRule = findViewById(R.id.ruleRadio);
         rLikely = findViewById(R.id.likelyRadio);
+        rDice = findViewById(R.id.diceRadio);
 
         rNeutral.setChecked(Settings.isNeutralCard);
         rPersonal.setChecked(Settings.isPersonalCard);
@@ -54,6 +55,7 @@ public class settingsActivity extends Activity {
         rTruth.setChecked(Settings.isTruthCard);
         rRule.setChecked(Settings.isRuleCard);
         rLikely.setChecked(Settings.isLikelyCard);
+        rDice.setChecked(Settings.isDiceGame);
 
         gamemodeLabel.setOnClickListener(new DoubleClickListener() {
 
@@ -65,6 +67,11 @@ public class settingsActivity extends Activity {
             @Override
             public void onDoubleClick(View v) {
                 Settings.isDevBoxActivated = !Settings.isDevBoxActivated;
+                String state = "Disabled";
+                if (Settings.isDevBoxActivated){
+                    state = "Enabled";
+                }
+                Toast.makeText(settingsActivity.this, "Devbox " + state, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -114,10 +121,16 @@ public class settingsActivity extends Activity {
         Settings.setIsTruthCard(rTruth.isChecked());
         Settings.setIsRuleCard(rRule.isChecked());
         Settings.setIsLikelyCard(rLikely.isChecked());
+        Settings.setIsDiceGame(rDice.isChecked());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
 
+        }
+
+        public void onHelp(View view){
+            Intent intent = new Intent(this, helpActivity.class);
+            startActivity(intent);
         }
 
         private String updateGamemode(int low, int high){
@@ -143,14 +156,12 @@ public class settingsActivity extends Activity {
             if(high <= 3){
                 return "Pussy Mode";
             }
-
             if(high <= 5 && low <=2 ){
                 return "Normal Mode";
             }
             if(high >3){
                 return "Rough";
             }
-
             return "Testing New Waters";
         }
 }

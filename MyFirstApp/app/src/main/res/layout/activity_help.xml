@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyBackground"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".helpActivity">
+
+    <ImageButton
+        android:id="@+id/returnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:onClick="onReturn"
+        android:src="@drawable/abc_vector_test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/helpLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="@string/helpLabel"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/drinkHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
+        android:onClick="onHelpCat"
+        android:text="@string/drinkCat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpLabel" />
+
+    <Button
+        android:id="@+id/neutralHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/neutralCat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/drinkHelpBtn" />
+
+    <Button
+        android:id="@+id/voteHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/voteCat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drinkHelpBtn" />
+
+    <Button
+        android:id="@+id/truthHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/truthCat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/voteHelpBtn" />
+
+    <Button
+        android:id="@+id/neverHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/neverCat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voteHelpBtn" />
+
+    <Button
+        android:id="@+id/dareHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/dareCat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/neverHelpBtn" />
+
+    <Button
+        android:id="@+id/likelyHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/likelyCat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/neverHelpBtn" />
+
+    <Button
+        android:id="@+id/ruleHelpBtn"
+        android:layout_width="@dimen/size"
+        android:layout_height="@dimen/helpBtnSize"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="onHelpCat"
+        android:text="@string/ruleCat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/likelyHelpBtn" />
+
+    <TextView
+        android:id="@+id/helpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/helpText"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/likelyHelpBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
