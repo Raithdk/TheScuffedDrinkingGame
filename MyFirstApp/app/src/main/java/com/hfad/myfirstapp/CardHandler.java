@@ -80,7 +80,7 @@ public class CardHandler {
         //votekort
         if(Settings.isVoteCard){
         for (String prompt : voteArray) {
-            allCards.add(new DrinkCard((prompt.trim() + "\n/x tåre"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
+            allCards.add(new DrinkCard(prompt.trim(), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
         }}
 
         if(Settings.isLikelyCard){
