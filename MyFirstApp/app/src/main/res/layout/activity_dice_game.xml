@@ -119,13 +119,13 @@
 
         android:layout_width="@dimen/diceBtnWidth"
         android:layout_height="@dimen/diceBtnHeight"
-        android:background="@drawable/purple_corner"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/purple_corner"
         android:text="1"
         android:textSize="@dimen/diceBtnTxtSize"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/diceRollBtn"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -214,5 +214,37 @@
         android:text="9"
         app:layout_constraintEnd_toEndOf="@+id/button6"
         app:layout_constraintTop_toTopOf="@+id/button7" />
+
+    <TextView
+        android:id="@+id/diceGuessView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/numberDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/guessSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/outcomeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guessSum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

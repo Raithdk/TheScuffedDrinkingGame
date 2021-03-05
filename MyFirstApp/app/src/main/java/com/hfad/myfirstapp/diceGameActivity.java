@@ -14,12 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class diceGameActivity extends Activity implements View.OnClickListener {
-    int rollCount = 0, prevRoll;
-    TextView firstNumber,lastNumber, infoBox, dividerBox;
+    int rollCount = 0, prevRoll, prevGuess;
+    TextView firstNumber,lastNumber, infoBox, dividerBox, guessView, guessSum, outcomeView;
     View halfLayout;
+    ConstraintLayout layout;
     ImageButton returnBtn;
-    Button diceButton;
-    int roll;
+    Button diceButton, btn_unfocus;
+    boolean btn_is_focus = false;
+    int roll, guess, difference;
     private int[] btn_id = {R.id.button, R.id.button2, R.id.button3, R.id.button4,R.id.button5,R.id.button6,R.id.button7,R.id.button8,R.id.button9};
     private Button[] btn = new Button[btn_id.length];
 
@@ -34,14 +36,16 @@ public class diceGameActivity extends Activity implements View.OnClickListener {
         halfLayout = findViewById(R.id.halfView);
         returnBtn = findViewById(R.id.returnBtn);
         diceButton = findViewById(R.id.diceRollBtn);
-
-        diceButton.setVisibility(View.INVISIBLE);
+        layout = findViewById(R.id.diceBackground);
+        guessView = findViewById(R.id.diceGuessView);
+        guessSum = findViewById(R.id.guessSum);
+        outcomeView = findViewById(R.id.outcomeView);
 
         for(int i = 0; i < btn.length; i++){
-            btn[i] = (Button) findViewById(btn_id[i]);
+            btn[i] = findViewById(btn_id[i]);
             btn[i].setOnClickListener(this);
         }
-
+        btn_unfocus = btn[0];
 
         dividerBox.setOnClickListener(new DoubleClickListener() {
 
@@ -73,36 +77,52 @@ public class diceGameActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button:
-                roll = 1;
+                guess = 1;
+                setFocus(btn_unfocus, btn[guess-1]);
                 break;
             case R.id.button2:
-                roll = 2;
+                guess = 2;
+                setFocus(btn_unfocus, btn[guess-1]);
                 break;
             case R.id.button3:
-                roll = 3;
+                guess = 3;
+                setFocus(btn_unfocus, btn[guess-1]);
                 break;
             case R.id.button4:
-                roll = 4;
+                guess = 4;
+                setFocus(btn_unfocus, btn[guess-1]);
                 break;
             case R.id.button5:
-                roll = 5;
+                guess = 5;
+                setFocus(btn_unfocus, btn[guess-1]);
                 break;
                 case R.id.button6:
-                    roll = 6;
+                    guess = 6;
+                    setFocus(btn_unfocus, btn[guess-1]);
+
                     break;
             case R.id.button7:
-                roll = 7;
+                guess = 7;
+                setFocus(btn_unfocus, btn[guess-1]);
                 break;
                 case R.id.button8:
-                    roll = 8;
+                    guess = 8;
+                    setFocus(btn_unfocus, btn[guess-1]);
                     break;
                     case R.id.button9:
-                        roll = 9;
+                        guess = 9;
+                        setFocus(btn_unfocus, btn[guess-1]);
                         break;
 
 
         }
-        onRollDice(v);
+    }
+
+    private void setFocus(Button btn_unfocus, Button btn_focus){
+        btn_unfocus.setBackground(getResources().getDrawable(R.drawable.purple_corner));
+        btn_focus.setBackground(getResources().getDrawable(R.drawable.purple_corner_focus));
+        this.btn_unfocus = btn_focus;
+        btn_is_focus = true;
     }
 
     private void switchActivity(){
@@ -111,74 +131,97 @@ public class diceGameActivity extends Activity implements View.OnClickListener {
     }
 
     public void onRollDice(View view){
-        boolean fromBtn = false;
-        for(int id : btn_id){
-            if(view.getId() == id){
-                fromBtn = true;
-            }
-        }
-
-        if(!fromBtn) {
             roll = (int) (Math.random() * 9) + 1;
 
-            if(Settings.isDiceGame){
-            if(prevRoll == 5 && Math.abs(prevRoll-roll) <=2 && roll != 5){
-                int ran = (int)(Math.random()*2)+1;
-                if(prevRoll-roll < 0) {
-                    System.out.print(roll);
 
-                    roll =  roll + ran;
-                    System.out.println("+"+ran + "  " +roll);
+
+            if(btn_is_focus) {
+
+                btn_is_focus = false;
+                btn_unfocus.setBackground(getResources().getDrawable(R.drawable.purple_corner));
+                String i = Integer.toString(roll);
+                //numberTxt.setText(""+i);
+                if (rollCount % 2 == 1) {
+                    btn[prevGuess-1].setVisibility(view.VISIBLE);
+                    if(Settings.isDiceGame){
+                        //if guessing 5 second time (highest prob for low sips)
+                        if(guess == 5){
+
+                            while(Math.abs(roll-guess) <= 2){
+                                //while difference is 2 or under
+                                roll = (int) (Math.random() * 9) + 1;
+                            }}
+                    }
+                    //show both numbers
+                    while(roll == prevGuess){
+                        roll = (int) (Math.random() * 9) + 1;
+                    }
+                    if(roll == guess){
+                        //Hvis man gætter rigtig anden gang
+                        layout.setBackgroundColor(Color.parseColor("#019053"));
+                        firstNumber.setText(Integer.toString(guess));
+                        dividerBox.setText("-");
+                        lastNumber.setText(Integer.toString(prevGuess));
+                    } else{
+                        layout.setBackgroundColor(Color.parseColor("#e05353"));
+                        firstNumber.setText(Integer.toString(guess));
+                        dividerBox.setText("-");
+                        lastNumber.setText(Integer.toString(roll));
+                    }
+                    guessSum.setText("Runde 1\nGæt: "+prevGuess + " Slag: " + prevRoll);
+                    outcomeView.setText("Runde 2\nGæt: "+guess + " Slag: " + roll);
+
+                    guessView.setText("Begynd igen!");
+                    //halfLayout.setVisibility(view.VISIBLE);
+                    String difference = rollDifference(guess, roll);
+
+                    infoBox.setText(difference);
+                    firstNumber.setVisibility(view.VISIBLE);
+                    lastNumber.setVisibility(view.VISIBLE);
+                    infoBox.setVisibility(view.VISIBLE);
+                    outcomeView.setVisibility(view.VISIBLE);
+                    guessSum.setVisibility(view.VISIBLE);
+
+                } else {
+                    //first round
+                    btn[guess-1].setVisibility(view.INVISIBLE);
+                    if(roll == guess){
+                        //Hvis man gætter rigtig første gang
+                        layout.setBackgroundColor(Color.parseColor("#f9ef77"));
+                        infoBox.setText("Byt!");
+                    }else{
+                        layout.setBackgroundColor(Color.parseColor("#e05353"));
+                        infoBox.setText("Forkert!");
+                    }
+                    guessView.setText("You guessed: " + guess);
+                    firstNumber.setVisibility(view.INVISIBLE);
+                    lastNumber.setVisibility(view.INVISIBLE);
+                    outcomeView.setVisibility(view.INVISIBLE);
+                    guessSum.setVisibility(view.INVISIBLE);
+                    halfLayout.setVisibility(view.INVISIBLE);
+                    dividerBox.setText(i);
 
                 }
-                else {
-                    System.out.print(roll);
-                    roll =  roll - ran;
-                    System.out.println("-" + ran+"  " +roll);
-                }
+                prevRoll = roll;
+                prevGuess = guess;
+                rollCount++;
             }
-            }
-
-        }
-        String i = Integer.toString(roll);
-        //numberTxt.setText(""+i);
-        if(rollCount % 2 == 1) {
-            //show both numbers
-            halfLayout.setVisibility(view.VISIBLE);
-            String difference = rollDifference(prevRoll,roll);
-            firstNumber.setText(Integer.toString(prevRoll));
-            dividerBox.setText("-");
-            lastNumber.setText(Integer.toString(roll));
-            infoBox.setText(difference);
-            firstNumber.setVisibility(view.VISIBLE);
-            lastNumber.setVisibility(view.VISIBLE);
-            infoBox.setVisibility(view.VISIBLE);
-            diceButton.setVisibility(View.INVISIBLE);
-                for(Button b : btn){
-                    b.setVisibility(View.VISIBLE);
-                }
-
-        } else {
-            firstNumber.setVisibility(view.INVISIBLE);
-            lastNumber.setVisibility(view.INVISIBLE);
-            infoBox.setVisibility(view.INVISIBLE);
-            halfLayout.setVisibility(view.INVISIBLE);
-            dividerBox.setText(i);
-            diceButton.setVisibility(View.VISIBLE);
-                for(Button b : btn){
-                    b.setVisibility(View.INVISIBLE);
-                }
-        }
-        prevRoll = roll;
-        rollCount++;
     }
 
     private String rollDifference(int prevRoll, int roll){
-        int diff = prevRoll-roll;
+        int diff = Math.abs(prevRoll-roll);
+        String output;
+
         if (diff == 0){
-            return "Dealer Drikker!\nByt!";
+            output = "Dealer drikker: ";
+            diff = Math.abs(prevGuess - guess);
+        } else{
+            output =  "Spiller drikker: ";
         }
-        return "Drik: " + Integer.toString(diff).replace("-","") + " Tåre!";
+        if(diff>1){
+            return output + diff + " Tår!";
+        }
+        return output + diff + " Tåre!";
     }
 
     public void onReturn(View view){
