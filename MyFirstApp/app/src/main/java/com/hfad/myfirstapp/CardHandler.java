@@ -39,53 +39,53 @@ public class CardHandler {
 
         if(Settings.isPersonalCard){
             for(String prompt : personalArray){
-                allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, personalCardColor));
+                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_NEUTRAL, personalCardColor));
             }
         }
 
         if(Settings.isNeutralCard){
         for (String prompt : promptArray) {
-            allCards.add(new Card(prompt, StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
+            allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
         }
         }
 
         if(Settings.isDrinkCard){
         for (String prompt : drinkArray) {
-            createDrinkCard(prompt, StringMetadata.CATEGORY_DRINK, drinkCardColor);
+            createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_DRINK, drinkCardColor);
         }}
         //sandhedskort
         if(Settings.isTruthCard){
         for (String prompt : truthArray) {
-            allCards.add(new Card(prompt, StringMetadata.CATEGORY_TRUTH, truthCardColor));
+            allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_TRUTH, truthCardColor));
         }}
         //konsekvenskort
         if(Settings.isDareCard){
         for (String prompt : dareArray) {
-            allCards.add(new Card(prompt, StringMetadata.CATEGORY_DARE, dareCardColor));
+            allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_DARE, dareCardColor));
         }}
         //Pegekort
         if(Settings.isNeverCard){
         for (String prompt :  neverArray) {
-            createDrinkCard(prompt, StringMetadata.CATEGORY_NEVER, neverCardColor);
+            createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_NEVER, neverCardColor);
         }}
         //regelkort
         if(Settings.isRuleCard){
         for (String prompt : ruleArray){
             if(prompt.contains("/x")){
-                createDrinkCard(prompt, StringMetadata.CATEGORY_RULE, ruleCardColor);
+                createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_RULE, ruleCardColor);
             } else {
-                allCards.add(new Card(prompt, StringMetadata.CATEGORY_RULE,ruleCardColor));
+                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_RULE,ruleCardColor));
             }
         }}
         //votekort
         if(Settings.isVoteCard){
         for (String prompt : voteArray) {
-            allCards.add(new DrinkCard((prompt + "\n[/x tåre]"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
+            allCards.add(new DrinkCard((prompt.trim() + "\n/x tåre"), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
         }}
 
         if(Settings.isLikelyCard){
             for(String prompt : likelyArray){
-                allCards.add(new Card(prompt, StringMetadata.CATEGORY_LIKELY, likelyCardColor));
+                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_LIKELY, likelyCardColor));
             }
         }
 
