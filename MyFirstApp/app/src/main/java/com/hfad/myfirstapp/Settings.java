@@ -1,17 +1,19 @@
 package com.hfad.myfirstapp;
 
 public class Settings {
-    public static int lowSips =1, hiSips=5;
+    public static int lowSips =1, hiSips=4;
     public static String gamemode = "Normal";
     public static boolean isDrinkCard = true, isNeutralCard = true,
             isTruthCard = true, isDareCard = true,
             isNeverCard = true, isRuleCard = true,
             isVoteCard = true, isPersonalCard = true,
-            isLikelyCard = true, isDiceGame = true;
+            isLikelyCard = true, isDiceGame = true, isGroupsCard = true;
+
     public static boolean isDevBoxActivated = false;
 
 
     public static void setIsPersonalCard(boolean isPersonalCard){ Settings.isPersonalCard= isPersonalCard; }
+    public static void setIsGroupsCard(boolean isGroupsCard){ Settings.isGroupsCard = isGroupsCard; }
     public static void setHiSips(int hiSips) {
         Settings.hiSips = hiSips;
     }

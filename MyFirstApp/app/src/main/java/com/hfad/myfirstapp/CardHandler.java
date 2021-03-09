@@ -13,9 +13,10 @@ public class CardHandler {
             ruleCardColor = "#ff9359",
             voteCardColor = "#e9ff57",
             personalCardColor = "#93bbf0",
-            likelyCardColor = "#bd93f0";
+            likelyCardColor = "#bd93f0",
+            groupsCardColor = "#db70ab";
 
-    String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray, likelyArray;
+    String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray, likelyArray, groupsArray;
 
     private List<Card> allCards = new ArrayList<>();
 
@@ -34,6 +35,7 @@ public class CardHandler {
         ruleArray = StringMetadata.rulePrompts.split("\n");
         voteArray = StringMetadata.votePrompts.split("\n");
         likelyArray = StringMetadata.likelyPrompts.split("\n");
+        groupsArray = StringMetadata.groupsPrompts.split("\n");
 
         personalArray = StringMetadata.personalPrompts.split("\n");
 
@@ -86,6 +88,11 @@ public class CardHandler {
         if(Settings.isLikelyCard){
             for(String prompt : likelyArray){
                 allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_LIKELY, likelyCardColor));
+            }
+        }
+        if(Settings.isGroupsCard){
+            for(String prompt : groupsArray){
+                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_GROUPS, groupsCardColor));
             }
         }
 

@@ -159,8 +159,8 @@
         android:layout_marginTop="12dp"
         android:text="Dice Game"
         android:textSize="@dimen/checkBoxTxt"
-        app:layout_constraintStart_toStartOf="@+id/ruleRadio"
-        app:layout_constraintTop_toBottomOf="@+id/ruleRadio" />
+        app:layout_constraintStart_toStartOf="@+id/likelyRadio"
+        app:layout_constraintTop_toBottomOf="@+id/likelyRadio" />
 
     <Button
         android:id="@+id/saveBtn"
@@ -188,6 +188,16 @@
         android:text="Help"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/groupsRadio"
+        android:layout_width="@dimen/size"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="@dimen/checkBoxTxt"
+        android:text="Group Cards"
+        app:layout_constraintStart_toStartOf="@+id/ruleRadio"
+        app:layout_constraintTop_toBottomOf="@+id/ruleRadio" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
