@@ -199,5 +199,26 @@
         app:layout_constraintStart_toStartOf="@+id/ruleRadio"
         app:layout_constraintTop_toBottomOf="@+id/ruleRadio" />
 
+    <Button
+        android:id="@+id/enableAllBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Enable All"
+        android:textSize="24sp"
+        android:onClick="onAllCards"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        app:layout_constraintStart_toStartOf="@+id/saveBtn" />
+
+    <Button
+        android:id="@+id/disableAllBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="Disable All"
+        android:onClick="onAllCards"
+        app:layout_constraintBottom_toBottomOf="@+id/enableAllBtn"
+        app:layout_constraintEnd_toEndOf="@+id/saveBtn" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

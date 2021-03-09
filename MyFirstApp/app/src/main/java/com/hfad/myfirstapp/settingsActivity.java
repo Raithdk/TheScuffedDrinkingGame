@@ -20,6 +20,7 @@ public class settingsActivity extends Activity {
     TextView gamemodeView;
     TextView gamemodeLabel;
     CheckBox rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule, rLikely, rDice, rGroups;
+    CheckBox[] checkBoxes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class settingsActivity extends Activity {
         rLikely = findViewById(R.id.likelyRadio);
         rDice = findViewById(R.id.diceRadio);
         rGroups = findViewById(R.id.groupsRadio);
+        checkBoxes = new CheckBox[]{rNeutral,rPersonal,rDrink,rVote, rDare, rNever,rTruth,rRule, rLikely, rGroups};
 
         rNeutral.setChecked(Settings.isNeutralCard);
         rPersonal.setChecked(Settings.isPersonalCard);
@@ -128,6 +130,30 @@ public class settingsActivity extends Activity {
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+
+        }
+
+        public void onAllCards(View view){
+            boolean btnState = true;
+
+            if(view.getId() == findViewById(R.id.disableAllBtn).getId()){
+                btnState = false;
+            }
+
+            Settings.setIsNeutralCard(btnState);
+            Settings.setIsPersonalCard(btnState);
+            Settings.setIsDrinkCard(btnState);
+            Settings.setIsDareCard(btnState);
+            Settings.setIsVoteCard(btnState);
+            Settings.setIsNeverCard(btnState);
+            Settings.setIsTruthCard(btnState);
+            Settings.setIsRuleCard(btnState);
+            Settings.setIsLikelyCard(btnState);
+            Settings.setIsDiceGame(btnState);
+
+            for(CheckBox box : checkBoxes){
+                box.setChecked(btnState);
+            }
 
         }
 
