@@ -1,11 +1,12 @@
 package com.hfad.myfirstapp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CardHandler {
 
-    final String drinkCardColor = "#f06565",//"#f57e76",
+    private final String drinkCardColor = "#f06565",//"#f57e76",
             neutralCardColor = "#e9edc0",
             truthCardColor = "#66e3a4",//"#65f0aa",
             dareCardColor = "#de96f2",
@@ -18,6 +19,18 @@ public class CardHandler {
 
     String[] promptArray, drinkArray, truthArray, dareArray, neverArray, ruleArray, voteArray, personalArray, likelyArray, groupsArray;
 
+    List<Card> neutralCards = new ArrayList<>();
+    List<Card> drinkCards = new ArrayList<>();
+    List<Card> truthCards = new ArrayList<>();
+    List<Card> dareCards = new ArrayList<>();
+    List<Card> neverCards = new ArrayList<>();
+    List<Card> ruleCards = new ArrayList<>();
+    List<Card> voteCards = new ArrayList<>();
+    List<Card> personalCards = new ArrayList<>();
+    List<Card> likelyCards = new ArrayList<>();
+    List<Card> groupsCards = new ArrayList<>();
+
+    List<List<Card>> arrayCards = new ArrayList<>(Arrays.asList(neutralCards,drinkCards,truthCards,dareCards,neverCards,ruleCards,voteCards,personalCards,likelyCards,groupsCards));
     private List<Card> allCards = new ArrayList<>();
 
     public CardHandler() {
@@ -41,65 +54,77 @@ public class CardHandler {
 
         if(Settings.isPersonalCard){
             for(String prompt : personalArray){
-                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_NEUTRAL, personalCardColor));
+                personalCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_NEUTRAL, personalCardColor));
             }
         }
 
         if(Settings.isNeutralCard){
         for (String prompt : promptArray) {
-            allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
+            neutralCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_NEUTRAL, neutralCardColor));
         }
         }
 
         if(Settings.isDrinkCard){
         for (String prompt : drinkArray) {
-            createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_DRINK, drinkCardColor);
+            drinkCards.add(createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_DRINK, drinkCardColor));
         }}
         //sandhedskort
         if(Settings.isTruthCard){
         for (String prompt : truthArray) {
-            allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_TRUTH, truthCardColor));
+            truthCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_TRUTH, truthCardColor));
         }}
         //konsekvenskort
         if(Settings.isDareCard){
         for (String prompt : dareArray) {
-            allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_DARE, dareCardColor));
+            dareCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_DARE, dareCardColor));
         }}
         //Pegekort
         if(Settings.isNeverCard){
         for (String prompt :  neverArray) {
-            createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_NEVER, neverCardColor);
+            neverCards.add(createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_NEVER, neverCardColor));
         }}
         //regelkort
         if(Settings.isRuleCard){
         for (String prompt : ruleArray){
+            Card card;
             if(prompt.contains("/x")){
-                createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_RULE, ruleCardColor);
+                card = createDrinkCard(prompt.trim(), StringMetadata.CATEGORY_RULE, ruleCardColor);
             } else {
-                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_RULE,ruleCardColor));
+                card = new Card(prompt.trim(), StringMetadata.CATEGORY_RULE,ruleCardColor);
             }
+            ruleCards.add(card);
         }}
         //votekort
         if(Settings.isVoteCard){
         for (String prompt : voteArray) {
-            allCards.add(new DrinkCard(prompt.trim(), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
+            voteCards.add(new DrinkCard(prompt.trim(), StringMetadata.CATEGORY_VOTE, voteCardColor, 1,3));
         }}
 
         if(Settings.isLikelyCard){
             for(String prompt : likelyArray){
-                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_LIKELY, likelyCardColor));
+                likelyCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_LIKELY, likelyCardColor));
             }
         }
         if(Settings.isGroupsCard){
             for(String prompt : groupsArray){
-                allCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_GROUPS, groupsCardColor));
+                groupsCards.add(new Card(prompt.trim(), StringMetadata.CATEGORY_GROUPS, groupsCardColor));
             }
         }
 
-        if(allCards.isEmpty()){
-            allCards.add(new Card("Du har slået alle kort fra, din bøv!", StringMetadata.CATEGORY_NEUTRAL,neutralCardColor));
+        //check om all
+        boolean isEmpty = true;
+        for(List<Card> s : arrayCards){
+            if(s.size() > 0){
+                isEmpty = false;
+                break;
+            }
+
         }
-        allCards = shuffleCards(allCards);
+        if(isEmpty){
+            //allCards.add(new Card("Du har slået alle kort fra, din bøv!", StringMetadata.CATEGORY_NEUTRAL,neutralCardColor));
+        }
+        //missing shuffle algoritm for list<Card> 
+        //allCards = shuffleCards(allCards);
     }
 
     private List<Card> shuffleCards(List<Card> list) {
@@ -119,17 +144,16 @@ public class CardHandler {
         return list;
     }
 
-    private void createDrinkCard(String prompt, String category, String color){
-
+    private Card createDrinkCard(String prompt, String category, String color){
         if(prompt.contains("##")) {
             String[] drinkCard = splitCard(prompt);
             if (drinkCard.length > 2) {
-                allCards.add(new DrinkCard(drinkCard[0], category, color, Integer.parseInt(drinkCard[1]), Integer.parseInt(drinkCard[2])));
+                return new DrinkCard(drinkCard[0], category, color, Integer.parseInt(drinkCard[1]), Integer.parseInt(drinkCard[2]));
             } else {
-                allCards.add(new DrinkCard(drinkCard[0], category, color, Integer.parseInt(drinkCard[1])));
+                return new DrinkCard(drinkCard[0], category, color, Integer.parseInt(drinkCard[1]));
             }
         } else {
-            allCards.add(new DrinkCard(prompt, category, color));
+            return new DrinkCard(prompt, category, color));
         }
     }
 

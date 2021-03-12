@@ -1,9 +1,9 @@
 package com.hfad.myfirstapp;
 
 public class Card {
-    String cardPrompt;
-    String bColor;
-    String category;
+    private String cardPrompt;
+    private String bColor;
+    private String category;
 
     public Card(String text, String category, String hColor){
         this.cardPrompt = text;
@@ -28,6 +28,8 @@ public class Card {
     }
 
     public String getCategory() { return category; }
+
+    public String getCardPrompt(){ return cardPrompt; }
 
     public void setCardPrompt(String replacement){
         this.cardPrompt = replacement;
