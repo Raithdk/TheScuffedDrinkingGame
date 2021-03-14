@@ -29,6 +29,8 @@ public class Card {
 
     public String getCategory() { return category; }
 
+    public String getCardPrompt() { return cardPrompt; }
+
     public void setCardPrompt(String replacement){
         this.cardPrompt = replacement;
     }

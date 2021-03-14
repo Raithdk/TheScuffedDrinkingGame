@@ -103,7 +103,7 @@ public class CardHandler {
     }
 
     private List<Card> shuffleCards(List<Card> list) {
-        for (int i = 0; i < list.size() * 3; i++) {
+        for (int i = 0; i < list.size() * 5; i++) {
             //takes random card index
             int card1Place = (int) (Math.random() * list.size());
             int card2Place = (int) (Math.random() * list.size());

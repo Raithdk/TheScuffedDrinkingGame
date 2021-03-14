@@ -37,44 +37,12 @@ public class StringMetadata {
             "Alle, der bor i Rønne tømmer deres glas\n" +
             "Alle, der bor i Klemensker må give 2 tåre væk. Wack by!\n" +
             "Alle, der går på HF bunder\n" +
-            "Alle, der bor i Ømarie må give 5 tåre til nogle som ikke gør. Sej by!\n" +
+            "Alle, der har boet i Ømarie må give 5 tåre til nogle som ikke gør. Sej by!\n" +
             "Hvis dit efternavn starter med S, skal du bunde\n" +
             "Hvis din mest brugte sætning er “shut the fuck up”, skal du bunde\n" +
             "Hvis du er i familie med en politiker, bunder du \n" +
-            "Hedder du Oscar Severin Statager Schmidt må du give 3 tåre til hver af det modsatte køn i dette selvskab. Chadcar\n";
-
-    public final static String neutralPrompts = "Hvis du er den yngste i selskabet, skal du drikke ud \n" +
-            "Den første, der bunder, må vælge en, der skal bunde\n" +
-            "Alle, der hellere vil spille et andet spil, bunder\n" +
-            "Vælg et offer og nedstir dem til det bliver din tur igen\n" +
-            "Lad som om du kaster en bold til en medspiller og sørg for de griber den. I skåler, hvis det ikke lykkes\n" +
-            "Drik antal tåre som bogstaver i dit fornavn\n" +
-            "Drik antal tåre som bogstaver i efternavn\n" +
-            "Tag et shot\n" +
-            "Din højre sidemakker blander din næste drink \n" +
-            "Bund din drink\n" +
-            "Uddel samme antal tåre som der er år mellem ældste og yngste spiller\n" +
-            "Giv et shot\n" +
-            "Vælg en, der skal bunde\n" +
-            "Herreskål\n" +
-            "Herreskål\n" +
-            "Dameskål\n" +
-            "Dameskål\n" +
-            "Fællesskål\n" +
-            "Fællesskål\n" +
-            "Kategori!\n" +
-            "Kategori!\n" +
-            "Thunder\n" +
-            "Folkevogn (alle tager en tår hver gang der bliver sagt “folkevogn”)\n" +
-            "Drik X antal tåre, din højre sidemand drikker X-1 tåre. Dette kører rundt til X=0\n" +
-            "Du grim\n" +
-            "Uvejr! (Vandfald)\n" +
-            "Du dum\n" +
-            "Læs ikke dette kort op. Giv en highfive til alle i rummet. Hvis en eller flere lader dig hænge i mere en 5 sekunder, må du give /x tåre som deres straf. \n" +
-            "Du spiller flaskehalsen peger på. Den flasken peger på, må bestemme, hvem af jer to, der skal bunde hans/hendes drink. \n" +
-            "Shhh! Du må ikke snakke før det er din tur igen.\n" +
-            "Du skal kigge væk. Dine medspillere hælder nu enten vand i 2 shotglas og vand i det 3. Du skal nu tage et af de 3 shots.\n" +
-            "Alle lægger deres telefoner på bordet med skærmen opad. Den første der modtager en notifikation må uddele et shot.\n";
+            "Hedder du Oscar Severin Statager Schmidt må du give 3 tåre til hver af det modsatte køn i dette selvskab. Chadcar\n" +
+            "Oscarsss drik 5 tåre!\n";
 
     public final static String drinkPrompts =
             "Alle med briller, drikker /x tåre\n" +
@@ -171,6 +139,7 @@ public class StringMetadata {
                     "Vælg den person, der er bedst til ikke at bukke under for gruppepres. Vedkommende tømmer sit glas\n" +
                     "Udpeg person, der skal stave “Rød grød med fløde”. Hvis de gør det korrekt, må de give /x tåre!\n" +
                     "Udpeg personen med den største IQ. Personen må give /x tåre ud for sit kloge hovede\n" +
+                    "Udpeg personen med den Laveste IQ. Personen må give /x tåre ud for sit dumme hovede\n" +
                     "Du vælger om alle (inklusiv dig selv) skal drikke /x tåre eller ej\n" +
                     "Du vælger om alle (inklusiv dig selv) skal drikke /x tåre eller ej\n" +
                     "Hvis du kan oversætte 1011 til titalssystemet, må du give /x tåre væk\n" +
@@ -180,10 +149,13 @@ public class StringMetadata {
                     "Alle, der er i et forhold drikker /x tåre\n" +
                     "Alle, der har drukket rød bil drikker /x tåre\n" +
                     "Alle, der har set Friends drikker /x tåre\n" +
-                    "Alle, der har set The Office må give /x tåre\n" +
+                    "Alle, der har set The Office må give /x tåre væk\n" +
                     "Alle, der har et arbejde på nuværende tidspunkt, må give /x tåre væk - Hvis man har flere må man give /x tåre pr. arbejde\n" +
                     "Alle, der har haft tysk i gymnasiet må give /x tåre ud\n" +
-                    "Alle, der har haft Biologi på A-niveau må give /x tåre ud\n";
+                    "Alle, der har haft Biologi på A-niveau må give /x tåre ud\n" +
+                    "Alle, der har halskæde på, må give /x tåre ud!\n" +
+                    "Alle, der har halskæde på, skal tage /x tåre!\n" +
+                    "Alle, der har haft en ps2 må give /x tåre væk! ##2\n";
 
     public final static String truthPrompts = "Skål med den i dette rum, du helst ville skifte plads med for en dag\n" +
             "Hvilken superhelte kraft vil du have og hvorfor?\n" +
@@ -226,7 +198,10 @@ public class StringMetadata {
             "Hold en tale om, hvorfor ananas skal/ikke skal på pizza eller tøm dit glas\n" +
             "Sæt Uvejr af Simon Sandbye på\n" +
             "Forklar om bogstavet e eller tag et shot\n" +
-            "Sæt dig på skødet af en anden medspiller indtil det er din tur igen eller tøm dit glas\n";
+            "Sæt dig på skødet af en anden medspiller indtil det er din tur igen eller tøm dit glas\n" +
+            "Lav planken indtil det er din tur igen eller tøm dit glas\n" +
+            "Lav 20 armbøjninger eller ta et shot\n" +
+            "Tag 5 pullups eller tøm dit glas\n";
 
     public static String likelyPrompts = "At lave en app fordi alle andre drukspil blev for kedelige?\n" +
             "At købe billigt toiletpapir?\n" +
@@ -280,7 +255,8 @@ public class StringMetadata {
             "At være mere forelsket i sin hund end i en kæreste?\n";
 
     public final static String groupsPrompts = "Nørd?\n" +
-            "Mor/far?\n" +
+            "Mor?\n" +
+            "Far?\n" +
             "Musiker?\n" +
             "Dansemus?\n" +
             "Brian?\n" +
@@ -304,7 +280,8 @@ public class StringMetadata {
             "“Jeg starter i morgen”?\n" +
             "Linse Kessler?\n" +
             "Ronnie Coleman?\n" +
-            "Dyreelsker?";
+            "Dyreelsker?\n" +
+            "Pro Fortnite Gamer?";
 
 
     public final static String neverHaveIEverPrompts = "Kysset med en og glemt det dagen efter\n" +
@@ -368,7 +345,7 @@ public class StringMetadata {
             "Kysset med flere på samme aften\n" +
             "Taget en graviditetstest\n" +
             "Hjulpet min partner med at åbne min bh, fordi vedkommende ikke kunne\n" +
-            "Faldet ned af en trappe under en bytur\n";
+            "Faldet ned af en trappe under en bytur";
 
     public final static String rulePrompts = "Vælg et nyt navn til en medspiller \n" +
             "Vælg et nyt navn til en medspiller \n" +
@@ -416,7 +393,48 @@ public class StringMetadata {
             "Har et sugerør 1 eller 2 huller?\n" +
             "Big Time Rush eller iCarly?\n" +
             "Hannah Montana eller Magi på Waverly Place?\n" +
-            "Vild med dans eller X Factor?\n";
+            "Vild med dans eller X Factor?\n" +
+            "Shrek 2 eller Shrek 3?\n" +
+            "Christiansø eller Frederiksø?\n" +
+            "Chug jug with you eller American Boy?\n" +
+            "Ass or Tits?\n" +
+            "Squat eller Dødløft?\n" +
+            "Bodybuilding eller Powerlifting?\n" +
+            "Træne Ben eller Overkrop?\n";
+
+    public final static String neutralPrompts = "Hvis du er den yngste i selskabet, skal du drikke ud \n" +
+            "Den første, der bunder, må vælge en, der skal bunde\n" +
+            "Alle, der hellere vil spille et andet spil, bunder\n" +
+            "Vælg et offer og nedstir dem til det bliver din tur igen\n" +
+            "Lad som om du kaster en bold til en medspiller og sørg for de griber den. I skåler, hvis det ikke lykkes\n" +
+            "Drik antal tåre som bogstaver i dit fornavn\n" +
+            "Drik antal tåre som bogstaver i efternavn\n" +
+            "Tag et shot\n" +
+            "Din højre sidemakker blander din næste drink \n" +
+            "Bund din drink\n" +
+            "Uddel samme antal tåre som der er år mellem ældste og yngste spiller\n" +
+            "Giv et shot\n" +
+            "Vælg en, der skal bunde\n" +
+            "Herreskål\n" +
+            "Herreskål\n" +
+            "Dameskål\n" +
+            "Dameskål\n" +
+            "Fællesskål\n" +
+            "Fællesskål\n" +
+            "Kategori!\n" +
+            "Kategori!\n" +
+            "Thunder\n" +
+            "Among us SUS?!\n" +
+            "Folkevogn (alle tager en tår hver gang der bliver sagt “folkevogn”)\n" +
+            "Drik X antal tåre, din højre sidemand drikker X-1 tåre. Dette kører rundt til X=0\n" +
+            "Du grim\n" +
+            "Uvejr! (Vandfald)\n" +
+            "Du dum\n" +
+            "Læs ikke dette kort op. Giv en highfive til alle i rummet. Hvis en eller flere lader dig hænge i mere en 5 sekunder, må du give /x tåre som deres straf. \n" +
+            "Du spiller flaskehalsen peger på. Den flasken peger på, må bestemme, hvem af jer to, der skal bunde hans/hendes drink. \n" +
+            "Shhh! Du må ikke snakke før det er din tur igen.\n" +
+            "Du skal kigge væk. Dine medspillere hælder nu enten vand i 2 shotglas og vand i det 3. Du skal nu tage et af de 3 shots.\n" +
+            "Alle lægger deres telefoner på bordet med skærmen opad. Den første der modtager en notifikation må uddele et shot.\n";
 
 
     public static String[] HELP_TEXT ={"Druk kortene beskriver handlinger der enten ender ud i at personen med mobilen selv skal drikke, må vælge nogle der må give tåre væk eller selv at må give tåre til væk.",
